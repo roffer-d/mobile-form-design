@@ -1,32 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+<!--      <draggable tag="ul"-->
+<!--                 :list="list"-->
+<!--                 :group="{ name: 'form', pull: 'clone', put: false }"-->
+<!--                 ghost-class="ghost"-->
+<!--                 :sort="false">-->
+<!--          <li class="field-label"-->
+<!--              v-for="(item, index) in list"-->
+<!--              :key="index">-->
+<!--              <a>-->
+<!--                  <i class="icon iconfont" :class="item.icon"></i>-->
+<!--                  <span>{{item.label}}</span>-->
+<!--              </a>-->
+<!--          </li>-->
+<!--      </draggable>-->
+<!--      <draggable tag="ul"-->
+<!--                 :list="targetList"-->
+<!--                 :group="{ name: 'form'}"-->
+<!--                 ghost-class="ghost"-->
+<!--                 :sort="true"-->
+<!--                 @add="handleAdd"-->
+<!--      >-->
+<!--          <li class="field-label"-->
+<!--              v-for="(item, index) in targetList"-->
+<!--              :key="index">-->
+<!--              <a>-->
+<!--                  <i class="icon iconfont" :class="item.icon"></i>-->
+<!--                  <span>{{item.label}}</span>-->
+<!--              </a>-->
+<!--          </li>-->
+<!--      </draggable>-->
+        <form-design></form-design>
   </div>
 </template>
+<script>
+    import draggable from 'vuedraggable'
+    import formDesign from "./views/formDesign"
+
+    export default {
+        components:{draggable,formDesign},
+        data(){
+            return {
+                list:[
+                    {label:'文本框',icon:'icon-input'},
+                    {label:'密码框',icon:'icon-password'},
+                ],
+                targetList:[]
+            }
+        },
+        methods:{
+            handleAdd(a,b,c,d,e){
+                console.log(a,b,c,d,e)
+                console.log(this.targetList)
+            }
+        }
+    }
+</script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
