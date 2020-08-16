@@ -1,15 +1,23 @@
 <template>
-    
+    <component :is="who"></component>
 </template>
 
 <script>
     export default {
         name: "formItem",
-        props:[],
+        props:['field'],
         data(){
             return {
 
             }
+        },
+        computed:{
+            who(){
+                return `component-${this.field.type}`
+            }
+        },
+        created() {
+            console.log(this.field)
         },
         methods:{
 
