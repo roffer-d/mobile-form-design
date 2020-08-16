@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-upload",
-  props: ['data'],
+  props: ['field'],
   data () {
     return {
 

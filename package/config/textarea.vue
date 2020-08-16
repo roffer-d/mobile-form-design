@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-textarea",
-  props: ['data','column'],
+  props: ['field'],
   data () {
     return {
 

@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-select",
-  props: ['data','column'],
+  props: ['field'],
   components: {  },
   data () {
     return {

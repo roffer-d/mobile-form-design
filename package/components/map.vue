@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-map",
-  props: ['data'],
+  props: ['field'],
   data () {
     return {
 

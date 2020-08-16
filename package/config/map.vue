@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-map",
-  props: ['data'],
+  props: ['field'],
   data () {
     return {
 

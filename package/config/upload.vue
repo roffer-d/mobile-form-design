@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-upload",
-  props: ['data'],
+  props: ['field'],
   data () {
     return {
 

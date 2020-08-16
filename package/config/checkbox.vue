@@ -8,7 +8,7 @@
 
 export default {
   name: "config-checkbox",
-  props: ['data','column'],
+  props: ['field'],
   components: {  },
   data () {
     return {

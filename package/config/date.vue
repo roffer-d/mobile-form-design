@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-date",
-  props: ['data','column'],
+  props: ['field'],
   data () {
     return {
 

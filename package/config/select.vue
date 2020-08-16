@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-select",
-  props: ['data','column'],
+  props: ['field'],
   components: {  },
   data () {
     return {

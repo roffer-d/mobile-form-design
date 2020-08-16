@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-date",
-  props: ['data','column'],
+  props: ['field'],
   data () {
     return {
 

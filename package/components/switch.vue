@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-switch",
-  props: ['data'],
+  props: ['field'],
   methods: {
 
   },

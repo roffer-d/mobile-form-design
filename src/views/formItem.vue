@@ -1,5 +1,5 @@
 <template>
-    <component :is="who"></component>
+    <component :is="who" :field="field"></component>
 </template>
 
 <script>

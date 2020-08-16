@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-radio",
-  props: ['data','column'],
+  props: ['field'],
   components: {  },
   data () {
     return {

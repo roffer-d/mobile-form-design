@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-input",
-  props: ['data','column'],
+  props: ['field'],
   data () {
     return {
 

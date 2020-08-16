@@ -37,10 +37,10 @@
                        @update="handleUpdate"
                        @add="handleAdd">
 
-                <van-swipe-cell v-for="(item,index) in targetFields" :key="index">
+                <van-swipe-cell v-for="(item,index) in targetFields" :key="`${index}_${Date.now()}`">
                     <form-item :field="item"></form-item>
                     <template #right>
-                        <van-button square text="删除" type="danger" class="delete-button"/>
+                        <div class="del-component" @click.stop="delComponent(item,index)">删除</div>
                     </template>
                 </van-swipe-cell>
             </draggable>
@@ -110,11 +110,25 @@
             handleAdd(evt) {
                 console.log(evt)
                 let field = JSON.parse(JSON.stringify(this.fieldsConfig[evt.oldIndex]))
+
+                if (!field.prop) {
+                    let type = field.type
+                    let propSeq = Date.now() + '_' + Math.ceil(Math.random() * 99999)
+                    field.prop = `${type}_${propSeq}`
+                    field.propSeq = propSeq
+
+                    /** 生成字段唯一id属性 **/
+                    field.id = field.prop
+                }
+
                 this.targetFields.push(field)
             },
             /** 页面组件排序发生变化时执行 **/
-            handleUpdate(evt){
+            handleUpdate(evt) {
                 console.log(this.targetFields)
+            },
+            delComponent(field,index){
+                this.targetFields.splice(index,1)
             },
             back() {
                 this.$emit('back')
@@ -198,6 +212,18 @@
                 width: 100%;
                 height: calc(100vh - 7rem);
                 overflow-y: auto;
+
+                .del-component {
+                    background: #FF5855;
+                    color: #fff;
+                    font-size: .24rem;
+                    padding: 0 .3rem;
+                    text-align: center;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    border-radius: .04rem;
+                }
             }
 
             .trip {

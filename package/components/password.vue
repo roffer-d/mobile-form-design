@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-password",
-  props: ['data','column'],
+  props: ['field'],
   data () {
     return {
 

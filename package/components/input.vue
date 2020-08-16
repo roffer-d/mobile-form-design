@@ -1,13 +1,13 @@
 <template>
   <div>
-    <input type="text">
+    <input type="text" v-model="field[field.prop]" />
   </div>
 </template>
 
 <script>
 export default {
   name: "component-input",
-  props: ['data','column'],
+  props: ['field'],
   data () {
     return {
 

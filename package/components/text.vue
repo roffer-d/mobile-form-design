@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "component-text",
-  props: ['data'],
+  props: ['field'],
   components: {  },
   data () {
     return {

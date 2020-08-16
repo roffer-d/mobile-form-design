@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "config-text",
-  props: ['data'],
+  props: ['field'],
   components: {  },
   data () {
     return {
