@@ -38,7 +38,7 @@
                        @add="handleAdd">
 
                 <van-swipe-cell v-for="(item,index) in targetFields" :key="`${index}_${Date.now()}`">
-                    <form-item :field="item"></form-item>
+                    <form-item :field="item" @click.native="handleSelectedField(item)" />
                     <template #right>
                         <div class="del-component" @click.stop="delComponent(item,index)">删除</div>
                     </template>
@@ -58,6 +58,14 @@
             </div>
 
         </draggable>
+
+        <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
+            <form-review :visible.sync="reviewVisible" :fields="targetFields" />
+        </van-popup>
+
+        <van-popup v-model="configVisible" position="right" :style="{ height: '100%',width:'100%' }">
+            <form-config :field="selectedField" :visible.sync="configVisible" />
+        </van-popup>
     </div>
 
 </template>
@@ -66,6 +74,8 @@
     import fieldsConfig from "../../package/fieldsConfig"
     import draggable from 'vuedraggable'
     import formItem from "./formItem"
+    import formConfig from "./formConfig"
+    import formReview from "./formReview"
 
     import backImg from '../assets/back.png'
     import tripImg from '../assets/trip.png'
@@ -83,15 +93,18 @@
 
     export default {
         name: "formDesign",
-        components: {draggable, formItem},
+        components: {draggable, formItem, formConfig,formReview},
         data() {
             return {
                 backImg, tripImg, right, fieldsConfig,
+                reviewVisible: false,
+                configVisible: false,
                 menuIcons: {
                     input, date, checkbox, radio, select, text, textarea, time, upload, location
                 },
                 fields: [],
                 targetFields: [],
+                selectedField: {},
                 form: {
                     id: '',
                     formCode: '',
@@ -127,14 +140,18 @@
             handleUpdate(evt) {
                 console.log(this.targetFields)
             },
-            delComponent(field,index){
-                this.targetFields.splice(index,1)
+            handleSelectedField(field) {
+                this.selectedField = field
+                this.configVisible = true
+            },
+            delComponent(field, index) {
+                this.targetFields.splice(index, 1)
             },
             back() {
                 this.$emit('back')
             },
             review() {
-
+                this.reviewVisible = true
             },
             save() {
 
@@ -150,37 +167,38 @@
         padding: 0;
         margin: 0;
     }
-    .form-design{
-        .form-box{
+
+    .form-design {
+        .form-box {
             background: #fff;
             padding: .3rem;
             font-size: .26rem;
             margin: .1rem 0;
 
-            .title{
+            .title {
                 display: flex;
                 justify-content: space-between;
 
-                .icon{
+                .icon {
                     margin-right: .1rem;
                 }
 
-                .label{
-                    color:#434B65;
+                .label {
+                    color: #434B65;
                 }
 
-                img{
+                img {
                     width: .3rem;
                     height: .3rem;
                     vertical-align: sub;
                 }
             }
 
-            .content{
+            .content {
                 padding-left: .4rem;
-                margin:.2rem 0;
+                margin: .2rem 0;
 
-                .placeholder{
+                .placeholder {
                     color: #A1A5B2;
                 }
             }
@@ -246,7 +264,7 @@
 
             .target-form {
                 width: 100%;
-                height: calc(100vh - 7rem);
+                height: calc(100vh - 7.2rem);
                 overflow-y: auto;
 
                 .del-component {

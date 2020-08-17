@@ -1,15 +1,16 @@
 import Config from './config'
 import Components from './components'
-import mobileView from './mobileView'
+import Review from './review'
 
 const components = [
-  mobileView,
+
 ]
 
 export default {
   install (Vue) {
     Vue.use(Config)
     Vue.use(Components)
+    Vue.use(Review)
 
     components.map(component => {
       Vue.component(component.name, component);
