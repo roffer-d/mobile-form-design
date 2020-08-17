@@ -22,9 +22,9 @@
             <van-switch v-model="field.required" active-color="#40C273" inactive-color="#DFE5F0" size="20px"/>
         </div>
 
-        <div class="del-btn">删除</div>
+        <div class="del-btn" @click="delField">删除</div>
 
-        <div class="save-btn">保存</div>
+        <div class="save-btn" @click="save">保存</div>
     </div>
 </template>
 
@@ -50,6 +50,12 @@
         methods: {
             back() {
                 this.$emit('update:visible', false)
+            },
+            delField(){
+                this.$emit('delete')
+            },
+            save(){
+                this.back()
             }
         }
     }

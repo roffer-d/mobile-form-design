@@ -8,8 +8,7 @@
             <img :src="dragImg"/>
         </div>
         <div class="content">
-            <!--        <span class="placeholder">请输入文字内容</span>-->
-            <input type="text" v-model="field[field.prop]" placeholder="请输入文字内容"/>
+            <span class="placeholder">请输入文字内容</span>
         </div>
     </div>
 </template>

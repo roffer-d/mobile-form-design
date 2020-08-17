@@ -38,7 +38,7 @@
                        @add="handleAdd">
 
                 <van-swipe-cell v-for="(item,index) in targetFields" :key="`${index}_${Date.now()}`">
-                    <form-item :field="item" @click.native="handleSelectedField(item)" />
+                    <form-item :field="item" @click.native="handleSelectedField(item,index)" />
                     <template #right>
                         <div class="del-component" @click.stop="delComponent(item,index)">删除</div>
                     </template>
@@ -64,7 +64,7 @@
         </van-popup>
 
         <van-popup v-model="configVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-config :field="selectedField" :visible.sync="configVisible" />
+            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible" />
         </van-popup>
     </div>
 
@@ -105,6 +105,7 @@
                 fields: [],
                 targetFields: [],
                 selectedField: {},
+                selectedIndex: -1,
                 form: {
                     id: '',
                     formCode: '',
@@ -140,9 +141,14 @@
             handleUpdate(evt) {
                 console.log(this.targetFields)
             },
-            handleSelectedField(field) {
+            handleSelectedField(field,index) {
                 this.selectedField = field
+                this.selectedIndex = index
                 this.configVisible = true
+            },
+            handleDeleteField(){
+                this.targetFields.splice(this.selectedIndex,1)
+                this.configVisible = false
             },
             delComponent(field, index) {
                 this.targetFields.splice(index, 1)
