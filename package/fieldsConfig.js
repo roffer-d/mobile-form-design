@@ -8,7 +8,7 @@ export default [
     {
         type: 'password',
         label: '密码',
-        icon: 'input',
+        icon: 'password',
         disabled: false
     },
     {

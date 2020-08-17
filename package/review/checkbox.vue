@@ -2,15 +2,14 @@
     <div class="form-box">
         <div class="title">
             <div>
-                <img :src="checkboxImg" class="icon"/>
+<!--                <img :src="checkboxImg" class="icon"/>-->
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
         <div class="content">
-            <div v-for="(item,index) in field.dicData" :key="index" class="row">
-                <img :src="radioUnselectImg"/>
-                <span>{{item.label}}</span>
-            </div>
+            <van-checkbox-group v-model="field[field.prop]" v-for="(item,index) in field.dicData" :key="index" class="group">
+                <van-checkbox :name="item.value">{{item.label}}</van-checkbox>
+            </van-checkbox-group>
         </div>
     </div>
 </template>
@@ -35,21 +34,16 @@
 
 <style scoped lang="less">
     .form-box {
+        .title{
+            img{
+                vertical-align: text-top;
+            }
+        }
         .content {
-            .row {
-                margin: .2rem 0;
+            padding-left: 0;
 
-                img {
-                    width: .3rem;
-                    height: .3rem;
-                    vertical-align: middle;
-                    margin-right: .2rem;
-                }
-
-                span {
-                    color: #A1A5B2;
-                    font-size: .26rem;
-                }
+            .group{
+                margin:.3rem 0;
             }
         }
     }

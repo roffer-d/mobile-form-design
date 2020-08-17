@@ -2,19 +2,19 @@
     <div class="form-box">
         <div class="title">
             <div>
-                <img :src="inputImg" class="icon"/>
+                <img :src="passwordImg" class="icon"/>
                 <span class="label">{{field.label}}</span>
             </div>
             <img :src="dragImg"/>
         </div>
         <div class="content">
-            <span class="placeholder">请输入文字内容</span>
+            <span class="placeholder">请输入{{field.label}}</span>
         </div>
     </div>
 </template>
 
 <script>
-    import inputImg from '../../src/assets/input.png'
+    import passwordImg from '../../src/assets/password.png'
     import dragImg from '../../src/assets/drop.png'
 
     export default {
@@ -22,7 +22,7 @@
         props: ['field'],
         data() {
             return {
-                inputImg, dragImg
+                passwordImg, dragImg
             }
         },
         methods: {},

@@ -8,7 +8,7 @@
             <img :src="dragImg"/>
         </div>
         <div class="content">
-            <span class="placeholder">请选择</span>
+            <span class="placeholder">请选择{{field.label}}</span>
             <img :src="rightImg"/>
         </div>
     </div>

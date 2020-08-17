@@ -2,26 +2,25 @@
     <div class="form-box">
         <div class="title">
             <div>
-                <img :src="inputImg" class="icon"/>
+<!--                <img :src="passwordImg" class="icon"/>-->
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
         <div class="content">
-            <!--        <span class="placeholder">请输入文字内容</span>-->
             <input type="password" v-model="field[field.prop]" placeholder="请输入密码"/>
         </div>
     </div>
 </template>
 
 <script>
-    import inputImg from '../../src/assets/input.png'
+    import passwordImg from '../../src/assets/password.png'
 
     export default {
         name: "review-password",
         props: ['field'],
         data() {
             return {
-                inputImg
+                passwordImg
             }
         },
         methods: {},

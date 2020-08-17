@@ -90,6 +90,7 @@
     import time from '../assets/menu-time.png'
     import upload from '../assets/menu-upload.png'
     import location from '../assets/menu-location.png'
+    import password from '../assets/menu-password.png'
 
     export default {
         name: "formDesign",
@@ -100,7 +101,7 @@
                 reviewVisible: false,
                 configVisible: false,
                 menuIcons: {
-                    input, date, checkbox, radio, select, text, textarea, time, upload, location
+                    input, date, checkbox, radio, select, text, textarea, time, upload, location,password
                 },
                 fields: [],
                 targetFields: [],

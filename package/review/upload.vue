@@ -2,7 +2,7 @@
     <div class="form-box">
         <div class="title">
             <div>
-                <img :src="uploadImg" class="icon"/>
+<!--                <img :src="uploadImg" class="icon"/>-->
                 <span class="label">{{field.label}}</span>
             </div>
         </div>

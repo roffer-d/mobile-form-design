@@ -8,7 +8,7 @@
             <img :src="dragImg"/>
         </div>
         <div class="content">
-            <span class="placeholder">请输入文字内容</span>
+            <span class="placeholder">请输入{{field.label}}</span>
         </div>
     </div>
 </template>
