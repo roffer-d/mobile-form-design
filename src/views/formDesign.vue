@@ -150,6 +150,42 @@
         padding: 0;
         margin: 0;
     }
+    .form-design{
+        .form-box{
+            background: #fff;
+            padding: .3rem;
+            font-size: .26rem;
+            margin: .1rem 0;
+
+            .title{
+                display: flex;
+                justify-content: space-between;
+
+                .icon{
+                    margin-right: .1rem;
+                }
+
+                .label{
+                    color:#434B65;
+                }
+
+                img{
+                    width: .3rem;
+                    height: .3rem;
+                    vertical-align: sub;
+                }
+            }
+
+            .content{
+                padding-left: .4rem;
+                margin:.2rem 0;
+
+                .placeholder{
+                    color: #A1A5B2;
+                }
+            }
+        }
+    }
 </style>
 <style scoped lang="less">
     .form-design {

@@ -8,8 +8,8 @@
       <img :src="dragImg"/>
     </div>
     <div class="content">
-      <span class="placeholder">请选择位置</span>
-      <span class="action-btn">选择</span>
+      <span class="placeholder"></span>
+      <span class="action-btn">获取位置</span>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@
   import dragImg from '../../src/assets/drop.png'
 
   export default {
-    name: "component-map",
+    name: "component-realMap",
     props: ['field'],
     data() {
       return {

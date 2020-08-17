@@ -2,23 +2,27 @@ export default [
     {
         type: 'input',
         label: '单行文本',
-        icon: 'input'
+        icon: 'input',
+        disabled: false
     },
     {
         type: 'password',
         label: '密码',
-        icon: 'input'
+        icon: 'input',
+        disabled: false
     },
     {
         type: 'textarea',
         label: '多行文本',
-        icon: 'textarea'
+        icon: 'textarea',
+        disabled: false
     },
     {
         type: 'text',
-        label: '文本显示',
+        label: '文字说明',
         icon: 'text',
         displayText: '这是一段文字内容',
+        disabled: false
     },
     {
         type: 'radio',
@@ -28,7 +32,8 @@ export default [
             {label: '选项1', value: '选项1'},
             {label: '选项2', value: '选项2'},
             {label: '选项3', value: '选项3'}
-        ]
+        ],
+        disabled: false
     },
     {
         type: 'checkbox',
@@ -38,7 +43,8 @@ export default [
             {label: '选项1', value: '选项1'},
             {label: '选项2', value: '选项2'},
             {label: '选项3', value: '选项3'}
-        ]
+        ],
+        disabled: false
     },
     {
         type: 'select',
@@ -48,7 +54,8 @@ export default [
             {label: '选项1', value: '选项1'},
             {label: '选项2', value: '选项2'},
             {label: '选项3', value: '选项3'},
-        ]
+        ],
+        disabled: false
     },
     {
         type: 'upload',
@@ -65,23 +72,27 @@ export default [
         },
         canvasOption: {},
         headers: [],
-        data: []
+        data: [],
+        disabled: false
     },
     {
         type: 'date',
         label: '日期',
         icon: 'date',
         format: 'yyyy-MM-dd',
-        valueFormat: 'yyyy-MM-dd'
+        valueFormat: 'yyyy-MM-dd',
+        disabled: false
     },
     {
         type: 'map',
         label: '地址选择',
         icon: 'location',
+        disabled: false
     },
     {
         type: 'realMap',
         label: '实时位置',
         icon: 'location',
+        disabled: false
     }
 ]
