@@ -7,6 +7,7 @@ import Radio from './radio.vue'
 import Checkbox from './checkbox.vue'
 import Select from './select.vue'
 import Date from './date.vue'
+import Datetime from './datetime.vue'
 import Upload from './upload.vue'
 import Map from './map.vue'
 
@@ -20,6 +21,7 @@ const components = [
   Checkbox,
   Select,
   Date,
+  Datetime,
   Upload,
   Map
 ]

@@ -13,7 +13,7 @@
             <div class="form-item">
                 <div class="title">表单标题</div>
                 <div class="content">
-                    <input type="text" placeholder="请输入标题"/>
+                    <input type="text" v-model="form.formName" placeholder="请输入标题"/>
                 </div>
             </div>
             <div class="form-item">

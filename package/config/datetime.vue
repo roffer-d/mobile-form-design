@@ -23,7 +23,7 @@
     import rightImg from '../../src/assets/right.png'
 
     export default {
-        name: "config-date",
+        name: "config-time",
         props: ['field'],
         components: {},
         data() {

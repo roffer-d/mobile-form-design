@@ -8,7 +8,7 @@
         <div class="form-item">
             <div class="title">{{field.label}}标题</div>
             <div class="content">
-                <input type="text" placeholder="请输入标题"/>
+                <input type="text" placeholder="请输入标题" v-model="field.label"/>
             </div>
         </div>
         <div class="trip">

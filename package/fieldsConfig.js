@@ -64,8 +64,10 @@ export default [
         showFileList: true,
         multiple: true,
         limit: 10,
+        defaultLimit: 10,
         filesize: 50,
         defaultFileSize: 50,
+        tip:``,
         props: {},
         propsHttp: {
             fileName: 'files'
@@ -81,6 +83,14 @@ export default [
         icon: 'date',
         format: 'yyyy-MM-dd',
         valueFormat: 'yyyy-MM-dd',
+        disabled: false
+    },
+    {
+        type: 'datetime',
+        label: '日期时间',
+        icon: 'date',
+        format: 'yyyy-MM-dd hh:mm:ss',
+        valueFormat: 'yyyy-MM-dd hh:mm:ss',
         disabled: false
     },
     {
