@@ -1,9 +1,10 @@
 import Config from './config'
 import Components from './components'
 import Review from './review'
+import formDesign from "./formDesign"
 
 const components = [
-
+  formDesign
 ]
 
 export default {

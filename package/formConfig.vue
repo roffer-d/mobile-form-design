@@ -29,7 +29,7 @@
 </template>
 
 <script>
-    import backImg from '../assets/back.png'
+    import backImg from '../src/assets/back.png'
 
     export default {
         name: "formConfig",

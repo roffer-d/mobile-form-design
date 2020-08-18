@@ -28,8 +28,8 @@
 </template>
 
 <script>
-    import backImg from '../assets/back.png'
-    import rightImg from '../assets/right.png'
+    import backImg from '../src/assets/back.png'
+    import rightImg from '../src/assets/right.png'
 
     export default {
         name: "formConfig",
@@ -59,6 +59,14 @@
     .form-design {
         .van-popup {
             background: #F7F9FB;
+        }
+
+        .form-review{
+            .ctx{
+                .content{
+                    padding: 0;
+                }
+            }
         }
     }
 </style>

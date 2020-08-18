@@ -71,26 +71,26 @@
 </template>
 
 <script>
-    import fieldsConfig from "../../package/fieldsConfig"
+    import fieldsConfig from "./fieldsConfig"
     import draggable from 'vuedraggable'
     import formItem from "./formItem"
     import formConfig from "./formConfig"
     import formReview from "./formReview"
 
-    import backImg from '../assets/back.png'
-    import tripImg from '../assets/trip.png'
-    import right from '../assets/right.png'
-    import input from '../assets/menu-input.png'
-    import date from '../assets/menu-date.png'
-    import checkbox from '../assets/menu-checkbox.png'
-    import radio from '../assets/menu-radio.png'
-    import select from '../assets/menu-select.png'
-    import text from '../assets/menu-text.png'
-    import textarea from '../assets/menu-textarea.png'
-    import time from '../assets/menu-time.png'
-    import upload from '../assets/menu-upload.png'
-    import location from '../assets/menu-location.png'
-    import password from '../assets/menu-password.png'
+    import backImg from '../src/assets/back.png'
+    import tripImg from '../src/assets/trip.png'
+    import right from '../src/assets/right.png'
+    import input from '../src/assets/menu-input.png'
+    import date from '../src/assets/menu-date.png'
+    import checkbox from '../src/assets/menu-checkbox.png'
+    import radio from '../src/assets/menu-radio.png'
+    import select from '../src/assets/menu-select.png'
+    import text from '../src/assets/menu-text.png'
+    import textarea from '../src/assets/menu-textarea.png'
+    import time from '../src/assets/menu-time.png'
+    import upload from '../src/assets/menu-upload.png'
+    import location from '../src/assets/menu-location.png'
+    import password from '../src/assets/menu-password.png'
 
     export default {
         name: "formDesign",
