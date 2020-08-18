@@ -49,7 +49,8 @@
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
             <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate">
-                <div v-html="reviewCustom" slot="custom"></div>
+<!--                <div v-html="reviewCustom" slot="custom"></div>-->
+                <other-fields slot="custom"></other-fields>
             </form-review>
         </van-popup>
 
@@ -85,7 +86,34 @@
 
     export default {
         name: "formDesign",
-        components: {draggable, formItem, formConfig},
+        components: {
+            draggable, formItem, formConfig,
+            'otherFields': {
+                render(h){
+                    let vnode = null,_this = this,slotName='other-fields'
+
+                    function getVNode(list=_this.$root.$children){
+                        list.forEach(item=>{
+                            if(item.$slots[slotName]){
+                                vnode = item.$slots[slotName][0]
+                                return
+                            }else{
+                                getVNode(item.$children)
+                            }
+                        })
+                        return vnode
+                    }
+
+                    if(this.$root.$slots[slotName]){
+                        vnode = this.$root.$slots[slotName][0]
+                    }else{
+                        getVNode()
+                    }
+
+                    return h(vnode.tag, vnode.data, vnode.children)
+                }
+            }
+        },
         data() {
             return {
                 backImg, tripImg, right, fieldsConfig,
@@ -107,7 +135,8 @@
             this.$nextTick(() => {
                 let other = this.$slots['other-fields']
                 if (other && other.length) {
-                    this.reviewCustom = other[0].elm.outerHTML
+                    let vnode = other[0]
+                    this.reviewCustom = vnode.elm.outerHTML
                 }
             })
         },
