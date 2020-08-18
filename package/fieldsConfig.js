@@ -61,6 +61,7 @@ export default [
         type: 'upload',
         label: '上传',
         icon: 'upload',
+        action:'/app/mongodb/uploadFiles/',
         showFileList: true,
         multiple: true,
         limit: 10,
@@ -70,7 +71,8 @@ export default [
         tip:``,
         props: {},
         propsHttp: {
-            fileName: 'files'
+            fileName: 'files',
+            dataField:'data'//如果返回的格式有多级可以使用：'data.xxx.xxx'
         },
         canvasOption: {},
         headers: [],
