@@ -49,7 +49,6 @@
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
             <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate">
-<!--                <div v-html="reviewCustom" slot="custom"></div>-->
                 <other-fields slot="custom"></other-fields>
             </form-review>
         </van-popup>
@@ -118,7 +117,6 @@
             return {
                 backImg, tripImg, right, fieldsConfig,
                 reviewVisible: false,
-                reviewCustom: '',
                 configVisible: false,
                 validate: {},
                 menuIcons: {
@@ -132,13 +130,7 @@
             }
         },
         mounted() {
-            this.$nextTick(() => {
-                let other = this.$slots['other-fields']
-                if (other && other.length) {
-                    let vnode = other[0]
-                    this.reviewCustom = vnode.elm.outerHTML
-                }
-            })
+
         },
         methods: {
             /** 拖拽组件到页面的事件 **/
