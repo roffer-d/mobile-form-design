@@ -109,7 +109,7 @@
                         getVNode()
                     }
 
-                    return h(vnode.tag, vnode.data, vnode.children)
+                    return h(vnode.tag, vnode.data.attrs, vnode.children)
                 }
             }
         },
