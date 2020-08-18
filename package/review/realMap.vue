@@ -28,7 +28,7 @@
                 locationImg,
                 visible: false,
                 position: '',
-                ak: 'O7ssyxgSXGFfQxCHsVmlvhTuKoNKptyI'
+                ak: 'RTPRmbT7hbkFk9Rear6gsgWH'
             }
         },
         methods: {

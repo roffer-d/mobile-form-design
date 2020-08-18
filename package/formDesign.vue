@@ -10,19 +10,7 @@
         </div>
 
         <div class="ctx">
-            <div class="form-item">
-                <div class="title">表单标题</div>
-                <div class="content">
-                    <input type="text" v-model="form.formName" placeholder="请输入标题"/>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="title">表单类型</div>
-                <div class="content">
-                    <span>请选择表单类型</span>
-                    <img :src="right"/>
-                </div>
-            </div>
+            <slot name="other-fields"/>
             <div class="trip">
                 <span>表单内容</span>
                 <img :src="tripImg"/>
@@ -38,7 +26,7 @@
                        @add="handleAdd">
 
                 <van-swipe-cell v-for="(item,index) in targetFields" :key="`${index}_${Date.now()}`">
-                    <form-item :field="item" @click.native="handleSelectedField(item,index)" />
+                    <form-item :field="item" @click.native="handleSelectedField(item,index)"/>
                     <template #right>
                         <div class="del-component" @click.stop="delComponent(item,index)">删除</div>
                     </template>
@@ -60,11 +48,13 @@
         </draggable>
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-review :visible.sync="reviewVisible" :fields="reviewFields" />
+            <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate">
+                <div v-html="reviewCustom" slot="custom"></div>
+            </form-review>
         </van-popup>
 
         <van-popup v-model="configVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible" />
+            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible"/>
         </van-popup>
     </div>
 
@@ -91,6 +81,8 @@
     import location from '../src/assets/menu-location.png'
     import password from '../src/assets/menu-password.png'
 
+    import {Toast} from 'vant'
+
     export default {
         name: "formDesign",
         components: {draggable, formItem, formConfig},
@@ -98,27 +90,26 @@
             return {
                 backImg, tripImg, right, fieldsConfig,
                 reviewVisible: false,
+                reviewCustom: '',
                 configVisible: false,
+                validate: {},
                 menuIcons: {
-                    input, date, checkbox, radio, select, text, textarea, time, upload, location,password
+                    input, date, checkbox, radio, select, text, textarea, time, upload, location, password
                 },
                 fields: [],
                 targetFields: [],
                 reviewFields: [],
                 selectedField: {},
                 selectedIndex: -1,
-                form: {
-                    id: '',
-                    formCode: '',
-                    formName: '',
-                    formType: '1',
-                    capabilityTagId: '',
-                    capabilityTagName: '',
-                    capabilityTagIds: '',
-                    capabilityTagNames: '',
-                    formDataJson: ''
-                }
             }
+        },
+        mounted() {
+            this.$nextTick(() => {
+                let other = this.$slots['other-fields']
+                if (other && other.length) {
+                    this.reviewCustom = other[0].elm.outerHTML
+                }
+            })
         },
         methods: {
             /** 拖拽组件到页面的事件 **/
@@ -142,13 +133,13 @@
             handleUpdate(evt) {
                 console.log(this.targetFields)
             },
-            handleSelectedField(field,index) {
+            handleSelectedField(field, index) {
                 this.selectedField = field
                 this.selectedIndex = index
                 this.configVisible = true
             },
-            handleDeleteField(){
-                this.targetFields.splice(this.selectedIndex,1)
+            handleDeleteField() {
+                this.targetFields.splice(this.selectedIndex, 1)
                 this.configVisible = false
             },
             delComponent(field, index) {
@@ -158,11 +149,19 @@
                 this.$emit('back')
             },
             review() {
-                this.reviewFields = JSON.parse(JSON.stringify(this.targetFields))
-                this.reviewVisible = true
+                if (this.targetFields.length) {
+                    this.reviewFields = JSON.parse(JSON.stringify(this.targetFields))
+                    this.reviewVisible = true
+                } else {
+                    Toast('至少包含一个表单元素，方可预览！')
+                }
             },
             save() {
+                let data = {
+                    column: JSON.parse(JSON.stringify(this.targetFields))
+                }
 
+                this.$emit('save', data)
             }
         }
     }

@@ -29,7 +29,8 @@
             return {
                 locationImg,
                 visible: false,
-                ak: 'O7ssyxgSXGFfQxCHsVmlvhTuKoNKptyI',
+                // ak: 'O7ssyxgSXGFfQxCHsVmlvhTuKoNKptyI',
+                ak: 'RTPRmbT7hbkFk9Rear6gsgWH',
                 position:'',
             }
         },

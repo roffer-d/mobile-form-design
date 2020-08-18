@@ -5,19 +5,20 @@
             <div class="title">表单预览</div>
         </div>
         <div class="ctx">
-            <div class="form-item">
-                <div class="title">表单标题</div>
-                <div class="content">
-                    <input type="text" placeholder="请输入标题"/>
-                </div>
-            </div>
-            <div class="form-item">
-                <div class="title">表单类型</div>
-                <div class="content">
-                    <span>请选择表单类型</span>
-                    <img :src="rightImg"/>
-                </div>
-            </div>
+<!--            <div class="form-item">-->
+<!--                <div class="title">表单标题</div>-->
+<!--                <div class="content">-->
+<!--                    <input type="text" placeholder="请输入标题"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-item">-->
+<!--                <div class="title">表单类型</div>-->
+<!--                <div class="content">-->
+<!--                    <span>请选择表单类型</span>-->
+<!--                    <img :src="rightImg"/>-->
+<!--                </div>-->
+<!--            </div>-->
+            <slot name="custom" />
             <div class="trip">
                 <span>表单内容</span>
             </div>
@@ -36,12 +37,17 @@
         props: ['fields'],
         data() {
             return {
-                backImg,rightImg
+                backImg, rightImg
             }
         },
         computed: {
             who() {
                 return `config-${this.field.type}`
+            }
+        },
+        watch:{
+            fields(){
+                this.isValidForm()
             }
         },
         created() {
@@ -50,6 +56,23 @@
         methods: {
             back() {
                 this.$emit('update:visible', false)
+            },
+            isValidForm() {
+                let ret = {
+                    valid: true,
+                    validFields: []
+                }
+
+                this.fields.forEach(field => {
+                    if (field.required && !field[field.prop]) {
+                        ret.valid = false
+                        ret.validFields.push(JSON.parse(JSON.stringify(field)))
+                    }
+                })
+
+                this.$emit('update:validate',ret)
+
+                return ret
             }
         }
     }
@@ -61,9 +84,9 @@
             background: #F7F9FB;
         }
 
-        .form-review{
-            .ctx{
-                .content{
+        .form-review {
+            .ctx {
+                .content {
                     padding: 0;
                 }
             }
@@ -118,7 +141,7 @@
             }
         }
 
-        .ctx{
+        .ctx {
             margin-top: .94rem;
             height: calc(100vh - 0.94rem);
             overflow: auto;
