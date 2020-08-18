@@ -2,14 +2,19 @@
     <div class="form-box">
         <div class="title">
             <div>
-<!--                <img :src="selectImg" class="icon"/>-->
+                <!--                <img :src="selectImg" class="icon"/>-->
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
-        <div class="content">
-            <span class="placeholder">请选择</span>
+        <div class="content" @click="visible=true">
+            <span class="placeholder">{{value}}</span>
             <img :src="rightImg"/>
         </div>
+
+        <van-popup v-model="visible" position="bottom">
+            <van-picker show-toolbar :title="field.label" :columns="columns" :default-index="1" @confirm="confirm"
+                        @cancel="visible=false"/>
+        </van-popup>
     </div>
 </template>
 
@@ -22,10 +27,45 @@
         props: ['field'],
         data() {
             return {
-                selectImg, rightImg
+                selectImg, rightImg,
+                visible: false,
+                prop: this.field.prop,
+                value:'请选择'
             }
         },
-        methods: {},
+        computed: {
+            columns() {
+                let ret = [
+                    {
+                        values: this.field.dicData.map(item => {
+                            return item.label
+                        }),
+                        defaultIndex: this.field.dicData.findIndex((item, index, _this) => {
+                            return item.value == this.field[this.prop]
+                        })
+                    }
+                ]
+
+                return ret
+            }
+        },
+        created() {
+
+        },
+        methods: {
+            confirm(value) {
+                this.visible = false
+
+                this.field.dicData.forEach(item => {
+                    if (item.value == value) {
+                        this.field[this.field.prop] = item.value
+                        this.value = item.label
+
+                        return;
+                    }
+                })
+            }
+        },
         watch: {}
     }
 </script>

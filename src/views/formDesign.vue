@@ -60,7 +60,7 @@
         </draggable>
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-review :visible.sync="reviewVisible" :fields="targetFields" />
+            <form-review :visible.sync="reviewVisible" :fields="reviewFields" />
         </van-popup>
 
         <van-popup v-model="configVisible" position="right" :style="{ height: '100%',width:'100%' }">
@@ -105,6 +105,7 @@
                 },
                 fields: [],
                 targetFields: [],
+                reviewFields: [],
                 selectedField: {},
                 selectedIndex: -1,
                 form: {
@@ -158,6 +159,7 @@
                 this.$emit('back')
             },
             review() {
+                this.reviewFields = JSON.parse(JSON.stringify(this.targetFields))
                 this.reviewVisible = true
             },
             save() {

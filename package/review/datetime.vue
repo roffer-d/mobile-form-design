@@ -1,53 +1,86 @@
 <template>
-  <div class="form-box">
-    <div class="title">
-      <div>
-<!--        <img :src="dateImg" class="icon"/>-->
-        <span class="label">{{field.label}}</span>
-      </div>
+    <div class="form-box">
+        <div class="title">
+            <div>
+                <!--        <img :src="dateImg" class="icon"/>-->
+                <span class="label">{{field.label}}</span>
+            </div>
+        </div>
+        <div class="content" @click="visible=true">
+            <span class="placeholder">{{this.field[this.field.prop]||'请选择'}}</span>
+            <img :src="rightImg"/>
+        </div>
+
+        <van-popup v-model="visible" position="bottom">
+            <van-datetime-picker
+                    v-model="selectedDate"
+                    :type="field.type"
+                    :title="field.label"
+                    :min-date="minDate"
+                    :max-date="maxDate"
+                    :formatter="formatter"
+                    @confirm="confirm"
+                    @cancel="visible=false"
+            />
+        </van-popup>
     </div>
-    <div class="content">
-      <span class="placeholder">请选择</span>
-      <img :src="rightImg"/>
-    </div>
-  </div>
 </template>
 
 <script>
-  import dateImg from '../../src/assets/date.png'
-  import rightImg from '../../src/assets/right.png'
+    import dateImg from '../../src/assets/date.png'
+    import rightImg from '../../src/assets/right.png'
+    import {dateFormat} from '../utils'
 
-  export default {
-    name: "review-datetime",
-    props: ['field'],
-    data() {
-      return {
-        dateImg, rightImg
-      }
-    },
-    methods: {},
-    watch: {}
-  }
+    export default {
+        name: "review-datetime",
+        props: ['field'],
+        data() {
+            return {
+                dateImg, rightImg,
+                visible: false,
+                selectedDate: null,
+                minDate: new Date(),
+                maxDate: new Date(2100, 11, 30),
+                covert: {
+                    year: '年',
+                    month: '月',
+                    day: '日',
+                    hour: '时',
+                    minute: '分'
+                }
+            }
+        },
+        methods: {
+            formatter(type, val) {
+                return `${val}${this.covert[type]}`
+            },
+            confirm(date) {
+                this.field[this.field.prop] = dateFormat(date, this.field.valueFormat)
+                this.visible = false
+            }
+        },
+        watch: {}
+    }
 </script>
 
 <style scoped lang="less">
-  .form-box {
-    .content {
-      margin-top: .3rem;
-      height: .5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .form-box {
+        .content {
+            margin-top: .3rem;
+            height: .5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-      span {
-        color: #A8B1BB;
-        margin-left: .1rem;
-      }
+            span {
+                color: #A8B1BB;
+                margin-left: .1rem;
+            }
 
-      img {
-        width: .2rem;
-        height: .2rem;
-      }
+            img {
+                width: .2rem;
+                height: .2rem;
+            }
+        }
     }
-  }
 </style>
