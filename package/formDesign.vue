@@ -75,7 +75,6 @@
     import draggable from 'vuedraggable'
     import formItem from "./formItem"
     import formConfig from "./formConfig"
-    import formReview from "./formReview"
 
     import backImg from '../src/assets/back.png'
     import tripImg from '../src/assets/trip.png'
@@ -94,7 +93,7 @@
 
     export default {
         name: "formDesign",
-        components: {draggable, formItem, formConfig,formReview},
+        components: {draggable, formItem, formConfig},
         data() {
             return {
                 backImg, tripImg, right, fieldsConfig,

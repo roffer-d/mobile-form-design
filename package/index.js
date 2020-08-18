@@ -2,9 +2,11 @@ import Config from './config'
 import Components from './components'
 import Review from './review'
 import formDesign from "./formDesign"
+import formReview from './formReview'
 
 const components = [
-  formDesign
+  formDesign,
+  formReview
 ]
 
 export default {

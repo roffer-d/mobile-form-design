@@ -32,7 +32,7 @@
     import rightImg from '../src/assets/right.png'
 
     export default {
-        name: "formConfig",
+        name: "formReview",
         props: ['fields'],
         data() {
             return {
