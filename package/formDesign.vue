@@ -19,7 +19,7 @@
 
             <draggable tag="div" class="target-form"
                        :list="targetFields"
-                       :group="{ name: 'form'}"
+                       :group="{ name: 'form', put: true}"
                        ghost-class="ghost"
                        :sort="true"
                        @update="handleUpdate"
@@ -36,8 +36,10 @@
 
         <draggable tag="div" class="control"
                    :list="fields"
-                   :group="{ name: 'form', pull: 'clone', put: false }"
+                   :group="{ name: 'form', pull: 'clone', put: false}"
                    ghost-class="ghost"
+                   :move="handleMove"
+                   @end="handleEnd"
                    :sort="false">
 
             <div class="item" v-for="(item,index) in filterFields" :key="index">
@@ -115,6 +117,10 @@
                     this.filterFields = this.filterFields.filter(field => this.fieldList.includes(field.type))
                 }
             },
+            handleMove(evt){
+                console.log(evt)
+                evt.to.style.border = '0.01rem dashed #40C273'
+            },
             /** 拖拽组件到页面的事件 **/
             handleAdd(evt) {
                 let field = JSON.parse(JSON.stringify(this.filterFields[evt.oldIndex]))
@@ -130,6 +136,10 @@
                 }
 
                 this.targetFields.push(field)
+            },
+            handleEnd(evt){
+                console.log(evt)
+                evt.to.style.border = 'none'
             },
             /** 页面组件排序发生变化时执行 **/
             handleUpdate(evt) {
