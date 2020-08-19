@@ -7,7 +7,12 @@
             </div>
         </div>
         <div class="content">
-            <van-radio-group v-model="field[field.prop]" v-for="(item,index) in field.dicData" :key="index" class="group">
+            <van-radio-group
+                    :disabled="field.disabled"
+                    v-model="field[field.prop]"
+                    v-for="(item,index) in field.dicData"
+                    :key="index"
+                    class="group">
                 <van-radio :name="item.value">{{item.label}}</van-radio>
             </van-radio-group>
         </div>

@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="content">
-            <input type="text" v-model="field[field.prop]" placeholder="请输入文字内容"/>
+            <input type="text" v-model="field[field.prop]" placeholder="请输入文字内容" :disabled="field.disabled" />
         </div>
     </div>
 </template>

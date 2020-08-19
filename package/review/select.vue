@@ -6,7 +6,7 @@
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
-        <div class="content" @click="visible=true">
+        <div class="content" @click="showPicker">
             <span class="placeholder">{{value}}</span>
             <img :src="rightImg"/>
         </div>
@@ -64,6 +64,9 @@
                         return;
                     }
                 })
+            },
+            showPicker(){
+                !this.field.disabled && (this.visible = true)
             }
         },
         watch: {}

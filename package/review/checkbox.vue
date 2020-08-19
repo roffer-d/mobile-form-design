@@ -7,7 +7,12 @@
             </div>
         </div>
         <div class="content">
-            <van-checkbox-group v-model="field[field.prop]" v-for="(item,index) in field.dicData" :key="index" class="group">
+            <van-checkbox-group
+                    :disabled="field.disabled"
+                    v-model="field[field.prop]"
+                    v-for="(item,index) in field.dicData"
+                    :key="index"
+                    class="group">
                 <van-checkbox :name="item.value">{{item.label}}</van-checkbox>
             </van-checkbox-group>
         </div>

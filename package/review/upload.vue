@@ -12,22 +12,24 @@
             <div style="display: table">
                 <div v-for="(item,index) in field[field.prop] || []" :key="index" style="position: relative;">
                     <span style="text-decoration: underline" @click="reviewFile(item)">{{subFileName(item.name)}}</span>
-                    <span v-if="!data.disabled" class="del-file" @click="delFile(index)">删除</span>
+                    <span v-if="!field.disabled" class="del-file" @click="delFile(index)">删除</span>
                     <!--                        <van-icon name="cross" style="position: absolute;right: -40px;top:8px;" color="#c32026"/>-->
                 </div>
-                <van-uploader ref="upload"
-                              v-if="isIOS"
-                              :accept="accept"
-                              :max-count="field.limit||3"
-                              :multiple="field.multiple?true:false"
-                              :disabled="field.disabled?true:false"
-                              :before-read="beforeRead"
-                              :after-read="afterRead">
-                    <p style="font-size: 0.28rem;color: #00B38A">选择文件</p>
-                </van-uploader>
-                <div v-else-if="isAndroid" @click="!field.disabled && (showAndroidUpload = true)">
-                    <p style="font-size: 0.28rem;color: #00B38A">选择文件</p>
-                </div>
+                <template v-if="!field.disabled">
+                    <van-uploader ref="upload"
+                                  v-if="isIOS"
+                                  :accept="accept"
+                                  :max-count="field.limit||3"
+                                  :multiple="field.multiple?true:false"
+                                  :disabled="field.disabled?true:false"
+                                  :before-read="beforeRead"
+                                  :after-read="afterRead">
+                        <p style="font-size: 0.28rem;color: #00B38A">选择文件</p>
+                    </van-uploader>
+                    <div v-else-if="isAndroid" @click="!field.disabled && (showAndroidUpload = true)">
+                        <p style="font-size: 0.28rem;color: #00B38A">选择文件</p>
+                    </div>
+                </template>
             </div>
         </div>
 

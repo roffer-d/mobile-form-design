@@ -6,7 +6,7 @@
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
-        <div class="content" @click="visible=true">
+        <div class="content" @click="showPicker">
             <span class="placeholder">{{this.field[this.field.prop]||'请选择'}}</span>
             <img :src="rightImg"/>
         </div>
@@ -57,6 +57,9 @@
             confirm(date) {
                 this.field[this.field.prop] = dateFormat(date, this.field.valueFormat)
                 this.visible = false
+            },
+            showPicker(){
+                !this.field.disabled && (this.visible = true)
             }
         },
         watch: {}

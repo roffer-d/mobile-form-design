@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="content">
-      <span class="placeholder">这是一段文字说明</span>
+      <span class="placeholder">{{field.label}}</span>
     </div>
   </div>
 </template>

@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="content">
-            <span class="placeholder">请输入文字内容</span>
+            <textarea :disabled="field.disabled" style="width: 100%;height: 2rem" placeholder="请输入内容"></textarea>
         </div>
     </div>
 </template>
@@ -32,20 +32,22 @@
     .form-box {
         .content {
             margin-top: .3rem;
-            height: .5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 2rem;
+            margin-top: .3rem;
 
             span {
                 color: #A8B1BB;
             }
 
-            input {
+            textarea {
                 width: 100%;
                 height: 100%;
                 color: #555;
-                border: none;
+                border: .01rem solid #d2d2d2;
+                border-radius: .08rem;
                 outline: none;
             }
         }
