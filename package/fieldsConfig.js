@@ -26,7 +26,7 @@ export default [
     },
     {
         type: 'radio',
-        label: '单选框组',
+        label: '单选',
         icon: 'radio',
         dicData: [
             {label: '选项1', value: '选项1'},
@@ -37,7 +37,7 @@ export default [
     },
     {
         type: 'checkbox',
-        label: '多选框组',
+        label: '多选',
         icon: 'checkbox',
         dicData: [
             {label: '选项1', value: '选项1'},

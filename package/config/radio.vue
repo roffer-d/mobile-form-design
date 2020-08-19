@@ -57,7 +57,7 @@
     .config {
         padding: 0.3rem;
         background: #fff;
-        height: calc(100vh - 5.8rem);
+        height: calc(100vh - 9.8rem);
         overflow-y: auto;
 
         .item {

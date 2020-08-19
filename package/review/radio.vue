@@ -5,6 +5,7 @@
 <!--                <img :src="radioImg" class="icon"/>-->
                 <span class="require" v-if="field.required">*</span>
                 <span class="label">{{field.label}}</span>
+                <span class="tag">单选</span>
             </div>
         </div>
         <div class="content">
@@ -14,7 +15,12 @@
                     v-for="(item,index) in field.dicData"
                     :key="index"
                     class="group">
-                <van-radio :name="item.value">{{item.label}}</van-radio>
+                <van-radio :name="item.value">
+                    {{item.label}}
+                    <template #icon="props">
+                        <img class="img-icon" :src="props.checked ? checkedImg : uncheckedImg" />
+                    </template>
+                </van-radio>
             </van-radio-group>
         </div>
     </div>
@@ -22,7 +28,8 @@
 
 <script>
     import radioImg from '../../src/assets/radio.png'
-    import radioUnselectImg from '../../src/assets/radio-unselect.png'
+    import uncheckedImg from '../../src/assets/unchecked.png'
+    import checkedImg from '../../src/assets/radio-checked.png'
 
     export default {
         name: "review-radio",
@@ -30,7 +37,7 @@
         components: {},
         data() {
             return {
-                radioImg, radioUnselectImg
+                radioImg, uncheckedImg,checkedImg
             }
         },
         methods: {},
@@ -44,12 +51,26 @@
             img{
                 vertical-align: text-top;
             }
+
+            .tag{
+                margin-left: .3rem;
+                background: rgba(255,88,85,.15);
+                padding: .02rem .2rem;
+                border-radius: .04rem;
+                color: #FF5855;
+            }
         }
         .content {
             padding-left: 0;
 
             .group{
                 margin:.3rem 0;
+            }
+
+            .img-icon{
+                width: .3rem;
+                height: .3rem;
+                vertical-align: middle;
             }
         }
     }

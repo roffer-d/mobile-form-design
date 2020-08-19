@@ -56,7 +56,8 @@
                 return `${val}${this.covert[type]}`
             },
             confirm(date) {
-                this.field[this.field.prop] = dateFormat(date, this.field.valueFormat)
+                // this.field[this.field.prop] = dateFormat(date, this.field.valueFormat)
+                this.field[this.field.prop] = dateFormat(date, this.field.valueFormat.replace(':ss',''))
                 this.visible = false
             },
             showPicker(){
