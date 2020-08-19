@@ -7,14 +7,16 @@
             </div>
         </div>
         <div class="content">
-            <span class="placeholder">请选择文件</span>
-<!--            <span class="action-btn">选择文件</span>-->
-            <div style="display: table">
-                <div v-for="(item,index) in field[field.prop] || []" :key="index" style="position: relative;">
-                    <span style="text-decoration: underline" @click="reviewFile(item)">{{subFileName(item.name)}}</span>
+            <span class="placeholder" v-if="!field[field.prop]">请选择文件</span>
+            <div>
+                <div v-for="(item,index) in field[field.prop] || []" :key="index" class="file-list">
+                    <span class="file-name" @click="reviewFile(item)">{{subFileName(item.name)}}</span>
                     <span v-if="!field.disabled" class="del-file" @click="delFile(index)">删除</span>
                     <!--                        <van-icon name="cross" style="position: absolute;right: -40px;top:8px;" color="#c32026"/>-->
                 </div>
+            </div>
+            <span></span>
+            <div>
                 <template v-if="!field.disabled">
                     <van-uploader ref="upload"
                                   v-if="isIOS"
@@ -72,6 +74,7 @@
 <script>
     import uploadImg from '../../src/assets/upload.png'
     import axios from "axios";
+    import {Toast} from 'vant'
 
     export default {
         name: "review-upload",
@@ -186,7 +189,7 @@
                 axios.post(this.field.action,formData,
                     { headers }
                 ).then(res=>{
-                    let resFileList = res.data[field.propsHttp.dataField||'data'];
+                    let resFileList = res.data[this.field.propsHttp.dataField||'data'];
                     let prop = this.field.prop;
                     let fileList = this.field[prop]||[];
 
@@ -220,7 +223,12 @@
             },
             //下载预览文件
             reviewFile(item){
-                download && download(item.name,item.serverId)
+                if(this.$download){
+                    this.$download(item.name,item.serverId)
+                }else{
+                    console.log('预览需要设备支持！')
+                    Toast('预览需要设备支持！')
+                }
             },
         },
         watch: {}
@@ -231,7 +239,7 @@
     .form-box {
         .content {
             margin-top: .3rem;
-            height: .5rem;
+            min-height: .5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -242,6 +250,24 @@
 
             .action-btn {
                 color: #40C273;
+            }
+        }
+
+        .file-list{
+            position: relative;
+            margin:.2rem 0;
+
+            .file-name{
+                text-decoration: underline;
+                font-size: .26rem;
+            }
+
+            .del-file{
+                text-decoration: underline;
+                color: #c32624;
+                position: absolute;
+                right: -55px;
+                top:0;
             }
         }
     }

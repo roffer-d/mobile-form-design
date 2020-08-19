@@ -75,6 +75,7 @@ export default [
             dataField:'data'//如果返回的格式有多级可以使用：'data.xxx.xxx'
         },
         canvasOption: {},
+        headers:[],
         data: [],
         disabled: false
     },

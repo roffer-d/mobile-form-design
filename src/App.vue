@@ -39,7 +39,7 @@
                 uploadOption: {
                     action: '/app/mongodb/uploadFiles/',
                     headers: [
-                        {key:'Authorization',value:'Basic Y2Nzcm9ib3Q6MTIzNDU2'}
+                        {key:'Authorization',value:'bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3R5cGUiOm51bGwsInVzZXJfaWQiOiI2ODI1MzAxMjQzNjAzMTg5NzYiLCJ1c2VyX25hbWUiOiLlkJXmmYvotoUiLCJsb2dpbl90aW1lIjoiNTAwIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTU5Nzg5NjIwMywianRpIjoiODNiMGRjZTYtMWMyYi00NzZjLTliYTktNGQ1M2VmNjNkOTdmIiwiY2xpZW50X2lkIjoiY2Nzcm9ib3QifQ.Bdm007tW3v5Z9fGPhj8fj8u-LqP42yBNbBrGW62DidqT3eY5EsBojv76SgnsMFhGvw9XTNJIt6zbQ1WeXEJ-HiCniWMPEtmDIgnSJ-WL4GaocDz7p3TBWW1C_XFJUVBdUczggEHDJ8KwYZkptKLGli-Yw5ea3JLazIsG4_7M0iU'}
                     ],
                     data: [//其他附加上传属性
                         {key: 'other', value: '123'}

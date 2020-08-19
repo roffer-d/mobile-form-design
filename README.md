@@ -59,7 +59,7 @@ Vue.use(mobileFormDesign)
                 uploadOption: {
                     action: '/app/mongodb/uploadFiles/',
                     headers: [
-                        {key:'Authorization',value:''}
+                        {key:'Authorization',value:'xxxxx'}
                     ],
                     data: [//其他附加上传属性
                         {key: 'other', value: '123'}
