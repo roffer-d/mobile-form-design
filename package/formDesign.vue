@@ -118,7 +118,6 @@
                 }
             },
             handleMove(evt){
-                console.log(evt)
                 evt.to.style.border = '0.01rem dashed #40C273'
             },
             /** 拖拽组件到页面的事件 **/
@@ -138,7 +137,6 @@
                 this.targetFields.push(field)
             },
             handleEnd(evt){
-                console.log(evt)
                 evt.to.style.border = 'none'
             },
             /** 页面组件排序发生变化时执行 **/
