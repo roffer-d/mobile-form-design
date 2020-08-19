@@ -1,7 +1,7 @@
 {
   "name": "mobile-form-design",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "main": "lib/mobile-form-design.umd.js",
   "keywords": [
     "vue",
