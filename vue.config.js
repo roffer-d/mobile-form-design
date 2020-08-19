@@ -16,7 +16,7 @@ module.exports = {
     disableHostCheck: process.env.NODE_ENV === "development" ? true : false,
     proxy: {
       "/app": {
-        target: "http://10.206.20.48:18000",
+        target: "http://10.206.14.121:8080",
         ws: true,
         changeOrigin: true,
         pathRewrite: {

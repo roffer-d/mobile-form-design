@@ -98,8 +98,6 @@
                     }
                 }
             }
-
-            console.log(this.field)
         },
         methods: {
             beforeRead(e){
@@ -141,7 +139,7 @@
 
                 if(this.field.data && this.field.data instanceof Array && this.field.data.length){
                     this.field.data.forEach((item=>{
-                        formData.append(item.name,item.value)
+                        formData.append(item.key,item.value)
                     }))
                 }
 
@@ -178,8 +176,15 @@
                 //     overlay: false, //背景遮罩层打开,
                 //     loadingType: 'spinner' //加载图形
                 // });
+                let headers = { 'Content-Type': 'multipart/form-data' }
+                if(this.field.headers && this.field.headers instanceof Array && this.field.headers.length){
+                    this.field.headers.forEach(item=>{
+                        headers[item.key] = item.value
+                    })
+                }
+
                 axios.post(this.field.action,formData,
-                    { headers: { 'Content-Type': 'multipart/form-data' } }
+                    { headers }
                 ).then(res=>{
                     let resFileList = res.data[field.propsHttp.dataField||'data'];
                     let prop = this.field.prop;

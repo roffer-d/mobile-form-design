@@ -58,9 +58,11 @@ Vue.use(mobileFormDesign)
                  **/
                 uploadOption: {
                     action: '/app/mongodb/uploadFiles/',
-                    headers: [],
+                    headers: [
+                        {key:'Authorization',value:''}
+                    ],
                     data: [//其他附加上传属性
-                        {name: 'other', value: '123'}
+                        {key: 'other', value: '123'}
                     ],
                     limit: 10,//多文件上传最大个数
                     defaultLimit: 10,//多文件上传默认最大个数
