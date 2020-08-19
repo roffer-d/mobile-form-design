@@ -48,7 +48,7 @@
         </draggable>
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate">
+            <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate" :upload-option="uploadOption">
                 <other-fields slot="custom" />
             </form-review>
         </van-popup>
@@ -85,7 +85,7 @@
 
     export default {
         name: "formDesign",
-        props:['fieldList'],
+        props:['fieldList','uploadOption'],
         components: {draggable, formItem, formConfig},
         data() {
             return {

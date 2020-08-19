@@ -61,7 +61,7 @@ export default [
         type: 'upload',
         label: '上传',
         icon: 'upload',
-        action:'/app/mongodb/uploadFiles/',
+        action:'',
         showFileList: true,
         multiple: true,
         limit: 10,
@@ -75,7 +75,6 @@ export default [
             dataField:'data'//如果返回的格式有多级可以使用：'data.xxx.xxx'
         },
         canvasOption: {},
-        headers: [],
         data: [],
         disabled: false
     },

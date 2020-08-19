@@ -23,7 +23,7 @@
                 <span>表单内容</span>
             </div>
 
-            <component :is="`review-${item.type}`" :field="item" v-for="(item,index) in fields" :key="index"/>
+            <component :is="`review-${item.type}`" :field="item" v-for="(item,index) in fields" :key="index" :upload-option="uploadOption" />
         </div>
     </div>
 </template>
@@ -34,7 +34,7 @@
 
     export default {
         name: "formReview",
-        props: ['fields'],
+        props: ['fields','uploadOption'],
         data() {
             return {
                 backImg, rightImg

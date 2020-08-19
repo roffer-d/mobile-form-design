@@ -71,11 +71,11 @@
 
 <script>
     import uploadImg from '../../src/assets/upload.png'
-    import axios from "../../public/js/request";
+    import axios from "axios";
 
     export default {
         name: "review-upload",
-        props: ['field'],
+        props: ['field','uploadOption'],
         data() {
             return {
                 uploadImg,
@@ -89,6 +89,17 @@
         created() {
             this.isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
             this.isIOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+            if(this.uploadOption){
+                let keys = Object.keys(this.field)
+                for(let key in this.uploadOption){
+                    if(keys.includes(key)){
+                        this.field[key] = this.uploadOption[key]
+                    }
+                }
+            }
+
+            console.log(this.field)
         },
         methods: {
             beforeRead(e){
@@ -127,6 +138,12 @@
                 }
 
                 this.showAndroidUpload = false
+
+                if(this.field.data && this.field.data instanceof Array && this.field.data.length){
+                    this.field.data.forEach((item=>{
+                        formData.append(item.name,item.value)
+                    }))
+                }
 
                 this.uploadFile(formData)
             },
