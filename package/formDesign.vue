@@ -40,7 +40,7 @@
                    ghost-class="ghost"
                    :sort="false">
 
-            <div class="item" v-for="(item,index) in fieldsConfig" :key="index">
+            <div class="item" v-for="(item,index) in filterFields" :key="index">
                 <img :src="menuIcons[item.icon]"/>
                 <div>{{item.label}}</div>
             </div>
@@ -85,6 +85,7 @@
 
     export default {
         name: "formDesign",
+        props:['fieldList'],
         components: {
             draggable, formItem, formConfig,
             'otherFields': {
@@ -127,6 +128,7 @@
                     input, date, checkbox, radio, select, text, textarea, time, upload, location, password
                 },
                 fields: [],
+                filterFields:[],
                 targetFields: [],
                 reviewFields: [],
                 selectedField: {},
@@ -134,13 +136,19 @@
             }
         },
         mounted() {
-
+            this.getFilterFields()
         },
         methods: {
+            getFilterFields() {
+                this.filterFields = this.fieldsConfig
+
+                if (this.fieldList.length) {
+                    this.filterFields = this.filterFields.filter(field => this.fieldList.includes(field.type))
+                }
+            },
             /** 拖拽组件到页面的事件 **/
             handleAdd(evt) {
-                console.log(evt)
-                let field = JSON.parse(JSON.stringify(this.fieldsConfig[evt.oldIndex]))
+                let field = JSON.parse(JSON.stringify(this.filterFields[evt.oldIndex]))
 
                 if (!field.prop) {
                     let type = field.type
@@ -156,7 +164,7 @@
             },
             /** 页面组件排序发生变化时执行 **/
             handleUpdate(evt) {
-                console.log(this.targetFields)
+                // console.log(this.targetFields)
             },
             handleSelectedField(field, index) {
                 this.selectedField = field

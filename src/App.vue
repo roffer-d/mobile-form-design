@@ -1,5 +1,5 @@
 <template>
-    <form-design @save="save" @back="back">
+    <form-design @save="save" @back="back" :fieldList="fieldList">
         <div slot="other-fields">
             <div class="form-item">
                 <div class="title">表单标题</div>
@@ -25,6 +25,11 @@
         data() {
             return {
                 right,
+                /**
+                 * 需要的组件
+                 * 全部组件：'input','password','textarea','text','radio','checkbox','select','upload','date','datetime','map','realMap'
+                 **/
+                fieldList:['input','password','textarea','text','radio','checkbox','select','upload','date','datetime','map','realMap'],
                 form: {
                     id: '',
                     formCode: '',
