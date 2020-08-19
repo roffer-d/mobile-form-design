@@ -49,7 +49,7 @@
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
             <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate">
-                <other-fields slot="custom"></other-fields>
+                <other-fields slot="custom" />
             </form-review>
         </van-popup>
 
@@ -86,38 +86,7 @@
     export default {
         name: "formDesign",
         props:['fieldList'],
-        components: {
-            draggable, formItem, formConfig,
-            'otherFields': {
-                render(h) {
-                    let vnode = null, _this = this, slotName = 'other-fields'
-
-                    function getVNode(list = _this.$root.$children) {
-                        list.forEach(item => {
-                            if (item.$slots[slotName]) {
-                                vnode = item.$slots[slotName][0]
-                                return
-                            } else {
-                                getVNode(item.$children)
-                            }
-                        })
-                        return vnode
-                    }
-
-                    if (this.$root.$slots[slotName]) {
-                        vnode = this.$root.$slots[slotName][0]
-                    } else {
-                        getVNode()
-                    }
-
-                    if (vnode) {
-                        return h(vnode.tag, vnode.data.attrs, vnode.children)
-                    }
-
-                    return '';
-                }
-            }
-        },
+        components: {draggable, formItem, formConfig},
         data() {
             return {
                 backImg, tripImg, right, fieldsConfig,

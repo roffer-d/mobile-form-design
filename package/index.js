@@ -18,5 +18,35 @@ export default {
     components.map(component => {
       Vue.component(component.name, component);
     })
+
+    Vue.component('otherFields',{
+      render(h) {
+        let vnode = null, _this = this, slotName = 'other-fields'
+
+        function getVNode(list = _this.$root.$children) {
+          list.forEach(item => {
+            if (item.$slots[slotName]) {
+              vnode = item.$slots[slotName][0]
+              return
+            } else {
+              getVNode(item.$children)
+            }
+          })
+          return vnode
+        }
+
+        if (this.$root.$slots[slotName]) {
+          vnode = this.$root.$slots[slotName][0]
+        } else {
+          getVNode()
+        }
+
+        if (vnode) {
+          return h(vnode.tag, vnode.data.attrs, vnode.children)
+        }
+
+        return '';
+      }
+    });
   }
 }

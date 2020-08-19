@@ -138,41 +138,9 @@ Vue.use(mobileFormDesign)
 <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate">
     <!-- 
         如果有表单自定义的字段要在预览中显示，可在此处放置插槽
-        该插槽放置的是一个自定义组件 slot的名称是固定'sustom' 
+        该插槽放置的是一个组件，组件的名称对应的是上边的 <div slot="other-fields"> slot的值（不可更改）
+        slot的名称是固定'sustom' 
      -->
-    <other-fields slot="custom"></other-fields>
+    <other-fields slot="custom" />
 </form-review>
-
-components: {
-    'otherFields': {
-        render(h) {
-            //此处的 other-fields 对应表单设计的自定义字段slot名称 即上边的：<div slot="other-fields">
-            let vnode = null, _this = this, slotName = 'other-fields'
-    
-            function getVNode(list = _this.$root.$children) {
-                list.forEach(item => {
-                    if (item.$slots[slotName]) {
-                        vnode = item.$slots[slotName][0]
-                        return
-                    } else {
-                        getVNode(item.$children)
-                    }
-                })
-                return vnode
-            }
-    
-            if (this.$root.$slots[slotName]) {
-                vnode = this.$root.$slots[slotName][0]
-            } else {
-                getVNode()
-            }
-    
-            if (vnode) {
-                return h(vnode.tag, vnode.data.attrs, vnode.children)
-            }
-    
-            return '';
-        }
-    }
-}
 ```
