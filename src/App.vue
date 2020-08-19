@@ -1,15 +1,16 @@
 <template>
     <form-design @save="save" @back="back" :fieldList="fieldList">
+        <!-- 此处可以放置表单的其他自定义字段插槽，如表单名称、类型等自定义字段 -->
         <div slot="other-fields">
             <div class="form-item">
                 <div class="title">表单标题</div>
                 <div class="content">
-                    <input type="text" v-model="form.formName" placeholder="请输入标题" @input="formNameInput" />
+                    <input type="text" v-model="form.formName" placeholder="请输入标题" />
                 </div>
             </div>
             <div class="form-item">
                 <div class="title">表单类型</div>
-                <div class="content" @click="changeType">
+                <div class="content">
                     <span>请选择表单类型</span>
                     <img :src="right"/>
                 </div>
@@ -62,12 +63,6 @@
             },
             back() {
                 console.log('返回')
-            },
-            formNameInput(){
-                console.log(this.form.formName)
-            },
-            changeType(){
-                console.log(1111)
             }
         }
     }

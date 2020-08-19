@@ -18,25 +18,26 @@ Vue.use(mobileFormDesign)
 
 ## Use
 ```
-<form-design @save="save" @back="back" :fieldList="fields">
-    <!-- 此处可以放置表单的其他自定义字段插槽，如表单名称、类型等自定义字段 -->
-    <div slot="other-fields">
-        <div class="form-item">
-            <div class="title">表单标题</div>
-            <div class="content">
-                <input type="text" v-model="form.formName" placeholder="请输入标题" @input="formNameInput" />
+<template>
+    <form-design @save="save" @back="back" :fieldList="fieldList">
+        <!-- 此处可以放置表单的其他自定义字段插槽，如表单名称、类型等自定义字段 -->
+        <div slot="other-fields">
+            <div class="form-item">
+                <div class="title">表单标题</div>
+                <div class="content">
+                    <input type="text" v-model="form.formName" placeholder="请输入标题" />
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">表单类型</div>
+                <div class="content">
+                    <span>请选择表单类型</span>
+                    <img :src="right"/>
+                </div>
             </div>
         </div>
-        <div class="form-item">
-            <div class="title">表单类型</div>
-            <div class="content" @click="changeType">
-                <span>请选择表单类型</span>
-                <img :src="right"/>
-            </div>
-        </div>
-    </div>
-</form-design>
-
+    </form-design>
+</template>
 <script>
     import right from './assets/right.png'
     import {Toast} from 'vant'
@@ -46,7 +47,7 @@ Vue.use(mobileFormDesign)
             return {
                 right,
                 /**
-                 * 需要的组件 
+                 * 需要的组件
                  * 全部组件：'input','password','textarea','text','radio','checkbox','select','upload','date','datetime','map','realMap'
                  **/
                 fieldList:['input','password','textarea','text','radio','checkbox','select','upload','date','datetime','map','realMap'],
@@ -55,6 +56,10 @@ Vue.use(mobileFormDesign)
                     formCode: '',
                     formName: '',
                     formType: '1',
+                    capabilityTagId: '',
+                    capabilityTagName: '',
+                    capabilityTagIds: '',
+                    capabilityTagNames: '',
                     formDataJson: ''
                 }
             }
@@ -82,4 +87,48 @@ Vue.use(mobileFormDesign)
         }
     }
 </script>
+
+<style lang="less">
+    .form-item {
+        background: #fff;
+        padding: .3rem;
+
+        &:first-child {
+            border-bottom: .01rem solid #EFF1F4;
+        }
+
+        .title {
+            color: #434B65;
+            font-size: .24rem;
+            font-weight: 400;
+        }
+
+        .content {
+            margin-top: .3rem;
+            width: 100%;
+            height: .5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span {
+                color: #A8B1BB;
+            }
+
+            img {
+                width: .2rem;
+                height: .2rem;
+            }
+
+            input {
+                width: 100%;
+                height: 100%;
+                color: #555;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+</style>
+
 ```
