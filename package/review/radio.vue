@@ -3,6 +3,7 @@
         <div class="title">
             <div>
 <!--                <img :src="radioImg" class="icon"/>-->
+                <span class="require" v-if="field.required">*</span>
                 <span class="label">{{field.label}}</span>
             </div>
         </div>

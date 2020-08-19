@@ -10,6 +10,7 @@ import Date from './date.vue'
 import Datetime from './datetime.vue'
 import Upload from './upload.vue'
 import Map from './map.vue'
+import realMap from './realMap.vue'
 
 const components = [
   Input,
@@ -23,7 +24,8 @@ const components = [
   Date,
   Datetime,
   Upload,
-  Map
+  Map,
+  realMap
 ]
 
 const Config = {

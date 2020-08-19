@@ -50,13 +50,14 @@
         </draggable>
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate" :upload-option="uploadOption">
-                <other-fields slot="custom" />
+            <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate"
+                         :upload-option="uploadOption">
+                <other-fields slot="custom"/>
             </form-review>
         </van-popup>
 
         <van-popup v-model="configVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible"/>
+            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible" @save="saveConfig" />
         </van-popup>
     </div>
 
@@ -87,7 +88,7 @@
 
     export default {
         name: "formDesign",
-        props:['fieldList','uploadOption'],
+        props: ['fieldList', 'uploadOption'],
         components: {draggable, formItem, formConfig},
         data() {
             return {
@@ -99,7 +100,7 @@
                     input, date, checkbox, radio, select, text, textarea, time, upload, location, password
                 },
                 fields: [],
-                filterFields:[],
+                filterFields: [],
                 targetFields: [],
                 reviewFields: [],
                 selectedField: {},
@@ -117,7 +118,7 @@
                     this.filterFields = this.filterFields.filter(field => this.fieldList.includes(field.type))
                 }
             },
-            handleMove(evt){
+            handleMove(evt) {
                 evt.to.style.border = '0.01rem dashed #40C273'
             },
             /** 拖拽组件到页面的事件 **/
@@ -136,7 +137,7 @@
 
                 this.targetFields.push(field)
             },
-            handleEnd(evt){
+            handleEnd(evt) {
                 evt.to.style.border = 'none'
             },
             /** 页面组件排序发生变化时执行 **/
@@ -144,7 +145,7 @@
                 // console.log(this.targetFields)
             },
             handleSelectedField(field, index) {
-                this.selectedField = field
+                this.selectedField = JSON.parse(JSON.stringify(field))
                 this.selectedIndex = index
                 this.configVisible = true
             },
@@ -165,6 +166,9 @@
                 } else {
                     Toast('至少包含一个表单元素，方可预览！')
                 }
+            },
+            saveConfig(){
+                this.targetFields[this.selectedIndex] = this.selectedField
             },
             save() {
                 let data = {
@@ -195,6 +199,11 @@
             .title {
                 display: flex;
                 justify-content: space-between;
+
+                .require {
+                    color: #ff5855;
+                    margin-right: .1rem;
+                }
 
                 .icon {
                     margin-right: .1rem;

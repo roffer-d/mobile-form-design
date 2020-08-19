@@ -6,9 +6,9 @@
         </div>
 
         <div class="form-item">
-            <div class="title">{{field.label}}标题</div>
+            <div class="title">标题</div>
             <div class="content">
-                <input type="text" placeholder="请输入标题" v-model="field.label"/>
+                <input type="text" maxlength="20" placeholder="请输入标题" v-model="field.label"/>
             </div>
         </div>
         <div class="trip">
@@ -24,12 +24,15 @@
 
         <div class="del-btn" @click="delField">删除</div>
 
-        <div class="save-btn" @click="save">保存</div>
+        <div class="save">
+            <div class="save-btn" @click="save">保存</div>
+        </div>
     </div>
 </template>
 
 <script>
     import backImg from '../src/assets/back.png'
+    import {Toast} from 'vant'
 
     export default {
         name: "formConfig",
@@ -55,6 +58,11 @@
                 this.$emit('delete')
             },
             save(){
+                if(!this.field.label){
+                    Toast('标题不能为空！')
+                    return
+                }
+                this.$emit('save')
                 this.back()
             }
         }
@@ -180,19 +188,25 @@
             margin-top: 1rem;
         }
 
-        .save-btn {
-            height: .88rem;
-            line-height: .88rem;
-            background: linear-gradient(270deg, rgba(60, 195, 109, 1) 0%, rgba(72, 191, 130, 1) 100%);
-            color: #fff;
-            margin: 0 auto;
-            width: 94%;
-            text-align: center;
-            border-radius: .08rem;
-            font-size: .3rem;
-            position: absolute;
-            bottom: .6rem;
-            left: 3%;
+        .save{
+            width: 100%;
+            background: #fff;
+            position: fixed;
+            bottom: 0;
+            padding: .3rem 0;
+            z-index: 1;
+
+            .save-btn {
+                height: .88rem;
+                line-height: .88rem;
+                background: linear-gradient(270deg, rgba(60, 195, 109, 1) 0%, rgba(72, 191, 130, 1) 100%);
+                color: #fff;
+                margin: 0 auto;
+                width: 94%;
+                text-align: center;
+                border-radius: .08rem;
+                font-size: .3rem;
+            }
         }
     }
 </style>

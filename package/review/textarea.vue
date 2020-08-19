@@ -3,11 +3,12 @@
         <div class="title">
             <div>
 <!--                <img :src="textareaImg" class="icon"/>-->
+                <span class="require" v-if="field.required">*</span>
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
         <div class="content">
-            <textarea :disabled="field.disabled" style="width: 100%;height: 2rem" placeholder="请输入内容"></textarea>
+            <textarea :disabled="field.disabled" style="width: 100%;height: 2rem" :placeholder="`请输入${field.label}`"></textarea>
         </div>
     </div>
 </template>

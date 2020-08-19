@@ -3,11 +3,12 @@
         <div class="title">
             <div>
 <!--                <img :src="passwordImg" class="icon"/>-->
+                <span class="require" v-if="field.required">*</span>
                 <span class="label">{{field.label}}</span>
             </div>
         </div>
         <div class="content">
-            <input type="password" v-model="field[field.prop]" placeholder="请输入密码" :disabled="field.disabled" />
+            <input type="password" v-model="field[field.prop]" :placeholder="`请输入${field.label}`" :disabled="field.disabled" />
         </div>
     </div>
 </template>

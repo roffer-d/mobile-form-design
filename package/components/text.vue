@@ -7,9 +7,9 @@
       </div>
       <img :src="dragImg" />
     </div>
-    <div class="content">
-      <span class="placeholder">{{field.label}}</span>
-    </div>
+<!--    <div class="content">-->
+<!--      <span class="placeholder">{{field.label}}</span>-->
+<!--    </div>-->
   </div>
 </template>
 
