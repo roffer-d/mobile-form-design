@@ -57,7 +57,8 @@
         </van-popup>
 
         <van-popup v-model="configVisible" position="right" :style="{ height: '100%',width:'100%' }">
-            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible" @save="saveConfig" />
+            <form-config :field="selectedField" @delete="handleDeleteField" :visible.sync="configVisible"
+                         @save="saveConfig"/>
         </van-popup>
     </div>
 
@@ -167,7 +168,7 @@
                     Toast('至少包含一个表单元素，方可预览！')
                 }
             },
-            saveConfig(){
+            saveConfig() {
                 this.targetFields[this.selectedIndex] = this.selectedField
             },
             save() {
@@ -262,6 +263,10 @@
                 font-size: .3rem;
                 margin-left: .3rem;
                 color: #434B65;
+
+                &:last-child {
+                    margin-right: .3rem;
+                }
             }
 
             .back {
