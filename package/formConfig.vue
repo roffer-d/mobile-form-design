@@ -15,7 +15,7 @@
             <span>组件内容</span>
         </div>
 
-        <component :is="who" :field="field"></component>
+        <component :is="who" :field="field" />
 
         <div class="is-required">
             <span>是否必填</span>
