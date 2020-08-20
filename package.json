@@ -2,7 +2,7 @@
   "name": "mobile-form-design",
   "version": "1.0.0",
   "private": false,
-  "main": "lib/mobile-form-design.umd.js",
+  "main": "lib/mobile-form-design.umd.min.js",
   "keywords": [
     "vue",
     "mobile",
@@ -17,7 +17,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name mobile-form-design --dest lib package/index.js"
+    "lib": "vue-cli-service build --target lib --name mobile-form-design --formats umd-min --dest lib package/index.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

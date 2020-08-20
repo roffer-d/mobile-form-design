@@ -21,6 +21,7 @@
 <script>
     import locationImg from '../../src/assets/location.png'
     import mobileMap from "./mobileMap";
+    import Const from '../../public/js/const'
 
     export default {
         name: "review-map",
@@ -30,8 +31,7 @@
             return {
                 locationImg,
                 visible: false,
-                // ak: 'O7ssyxgSXGFfQxCHsVmlvhTuKoNKptyI',
-                ak: 'RTPRmbT7hbkFk9Rear6gsgWH',
+                ak: Const.mapAk,
                 position:'',
             }
         },
