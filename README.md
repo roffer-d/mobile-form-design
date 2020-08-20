@@ -1,5 +1,10 @@
 # mobile-form-design
 
+## Resource
+```
+https://github.com/roffer-d/mobile-form-design
+```
+
 ## Description
 ```
 Vue移动端表单设计器
