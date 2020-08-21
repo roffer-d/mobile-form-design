@@ -89,7 +89,20 @@
 
     export default {
         name: "formDesign",
-        props: ['componentList', 'uploadOption','fieldList'],
+        props: {
+            componentList:{
+                type:Array,
+                default:()=>{}
+            },
+            fieldList:{
+                type:Array,
+                default:()=>{}
+            },
+            uploadOption:{
+                type:Object,
+                default:()=>{}
+            }
+        },
         components: {draggable, formItem, formConfig},
         data() {
             return {
