@@ -1,8 +1,8 @@
 {
   "name": "mobile-form-design",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
-  "main": "lib/mobile-form-design.umd.min.js",
+  "main": "src/package/index.js",
   "keywords": [
     "vue",
     "mobile",
@@ -17,7 +17,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name mobile-form-design --formats umd-min --dest lib package/index.js"
+    "lib": "vue-cli-service build --target wc --name mobile-form-design --dest lib src/package/index.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

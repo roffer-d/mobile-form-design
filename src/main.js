@@ -5,7 +5,7 @@ import store from './store'
 import Vant from 'vant'
 import "vant/lib/index.css";
 
-import lib from "../package/"
+import lib from "./package/"
 // import lib from "../lib/mobile-form-design.umd.min"
 Vue.use(lib)
 
