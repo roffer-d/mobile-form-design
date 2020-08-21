@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import textareaImg from '../../assets/textarea.png'
+    import textareaImg from '../images/textarea.png'
 
     export default {
         name: "review-textarea",

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import passwordImg from '../../assets/password.png'
+    import passwordImg from '../images/password.png'
 
     export default {
         name: "review-password",

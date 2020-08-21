@@ -20,8 +20,8 @@
 </template>
 
 <script>
-    import selectImg from '../../assets/select.png'
-    import rightImg from '../../assets/right.png'
+    import selectImg from '../images/select.png'
+    import rightImg from '../images/right.png'
 
     export default {
         name: "review-select",

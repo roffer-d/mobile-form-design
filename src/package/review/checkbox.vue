@@ -27,9 +27,9 @@
 </template>
 
 <script>
-    import checkboxImg from '../../assets/checkbox.png'
-    import uncheckedImg from '../../assets/unchecked.png'
-    import checkedImg from '../../assets/checkbx-checked.png'
+    import checkboxImg from '../images/checkbox.png'
+    import uncheckedImg from '../images/unchecked.png'
+    import checkedImg from '../images/checkbx-checked.png'
 
     export default {
         name: "review-checkbox",

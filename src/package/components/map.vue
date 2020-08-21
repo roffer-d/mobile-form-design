@@ -15,8 +15,8 @@
 </template>
 
 <script>
-  import locationImg from '../../assets/location.png'
-  import dragImg from '../../assets/drop.png'
+  import locationImg from '../images/location.png'
+  import dragImg from '../images/drop.png'
 
   export default {
     name: "component-map",

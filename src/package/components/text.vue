@@ -14,8 +14,8 @@
 </template>
 
 <script>
-  import textImg from '../../assets/text.png'
-  import dragImg from '../../assets/drop.png'
+  import textImg from '../images/text.png'
+  import dragImg from '../images/drop.png'
 
 export default {
   name: "component-text",

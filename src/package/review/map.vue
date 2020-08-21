@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import locationImg from '../../assets/location.png'
+    import locationImg from '../images/location.png'
     import mobileMap from "./mobileMap";
     import Const from '../utils/const'
 

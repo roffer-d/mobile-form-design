@@ -15,9 +15,9 @@
 </template>
 
 <script>
-    import selectImg from '../../assets/select.png'
-    import dragImg from '../../assets/drop.png'
-    import rightImg from '../../assets/right.png'
+    import selectImg from '../images/select.png'
+    import dragImg from '../images/drop.png'
+    import rightImg from '../images/right.png'
 
     export default {
         name: "component-select",

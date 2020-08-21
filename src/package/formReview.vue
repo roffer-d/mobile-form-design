@@ -16,8 +16,8 @@
 </template>
 
 <script>
-    import backImg from '../assets/back.png'
-    import rightImg from '../assets/right.png'
+    import backImg from './images/back.png'
+    import rightImg from './images/right.png'
 
     export default {
         name: "formReview",

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import rightImg from '../../assets/right.png'
+    import rightImg from '../images/right.png'
 
     export default {
         name: "config-datetime",

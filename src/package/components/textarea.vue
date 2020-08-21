@@ -14,8 +14,8 @@
 </template>
 
 <script>
-    import textareaImg from '../../assets/textarea.png'
-    import dragImg from '../../assets/drop.png'
+    import textareaImg from '../images/textarea.png'
+    import dragImg from '../images/drop.png'
 
     export default {
         name: "component-textarea",

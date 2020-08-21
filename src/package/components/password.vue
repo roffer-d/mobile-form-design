@@ -14,8 +14,8 @@
 </template>
 
 <script>
-    import passwordImg from '../../assets/password.png'
-    import dragImg from '../../assets/drop.png'
+    import passwordImg from '../images/password.png'
+    import dragImg from '../images/drop.png'
 
     export default {
         name: "component-password",

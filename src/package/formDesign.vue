@@ -70,20 +70,20 @@
     import formItem from "./formItem"
     import formConfig from "./formConfig"
 
-    import backImg from '../assets/back.png'
-    import tripImg from '../assets/trip.png'
-    import right from '../assets/right.png'
-    import input from '../assets/menu-input.png'
-    import date from '../assets/menu-date.png'
-    import checkbox from '../assets/menu-checkbox.png'
-    import radio from '../assets/menu-radio.png'
-    import select from '../assets/menu-select.png'
-    import text from '../assets/menu-text.png'
-    import textarea from '../assets/menu-textarea.png'
-    import time from '../assets/menu-time.png'
-    import upload from '../assets/menu-upload.png'
-    import location from '../assets/menu-location.png'
-    import password from '../assets/menu-password.png'
+    import backImg from './images/back.png'
+    import tripImg from './images/trip.png'
+    import right from './images/right.png'
+    import input from './images/menu-input.png'
+    import date from './images/menu-date.png'
+    import checkbox from './images/menu-checkbox.png'
+    import radio from './images/menu-radio.png'
+    import select from './images/menu-select.png'
+    import text from './images/menu-text.png'
+    import textarea from './images/menu-textarea.png'
+    import time from './images/menu-time.png'
+    import upload from './images/menu-upload.png'
+    import location from './images/menu-location.png'
+    import password from './images/menu-password.png'
 
     import {Toast} from 'vant'
 
@@ -138,7 +138,7 @@
                 }
             },
             handleMove(evt) {
-                evt.to.style.border = '0.01rem dashed #40C273'
+                // evt.to.style.border = '0.01rem dashed #40C273'
             },
             /** 拖拽组件到页面的事件 **/
             handleAdd(evt) {
@@ -157,7 +157,7 @@
                 this.targetFields.push(field)
             },
             handleEnd(evt) {
-                evt.to.style.border = 'none'
+                // evt.to.style.border = 'none'
             },
             /** 页面组件排序发生变化时执行 **/
             handleUpdate(evt) {

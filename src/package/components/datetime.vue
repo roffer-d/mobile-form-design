@@ -16,9 +16,9 @@
 </template>
 
 <script>
-    import dateImg from '../../assets/date.png'
-    import dragImg from '../../assets/drop.png'
-    import rightImg from '../../assets/right.png'
+    import dateImg from '../images/date.png'
+    import dragImg from '../images/drop.png'
+    import rightImg from '../images/right.png'
 
     export default {
         name: "component-datetime",

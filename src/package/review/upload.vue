@@ -73,7 +73,7 @@
 </template>
 
 <script>
-    import uploadImg from '../../assets/upload.png'
+    import uploadImg from '../images/upload.png'
     import axios from "axios";
     import {Toast} from 'vant'
 

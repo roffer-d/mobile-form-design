@@ -22,7 +22,7 @@
     </form-design>
 </template>
 <script>
-    import right from './assets/right.png'
+    import right from './package/images/right.png'
     import {Toast} from 'vant'
 
     export default {

@@ -28,8 +28,8 @@
 </template>
 
 <script>
-    import dateImg from '../../assets/date.png'
-    import rightImg from '../../assets/right.png'
+    import dateImg from '../images/date.png'
+    import rightImg from '../images/right.png'
     import {dateFormat} from '../utils'
 
     export default {

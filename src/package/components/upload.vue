@@ -15,8 +15,8 @@
 </template>
 
 <script>
-    import uploadImg from '../../assets/upload.png'
-    import dragImg from '../../assets/drop.png'
+    import uploadImg from '../images/upload.png'
+    import dragImg from '../images/drop.png'
 
     export default {
         name: "component-upload",

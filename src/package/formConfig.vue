@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import backImg from '../assets/back.png'
+    import backImg from './images/back.png'
     import {Toast} from 'vant'
 
     export default {

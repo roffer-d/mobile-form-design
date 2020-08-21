@@ -17,9 +17,9 @@
 </template>
 
 <script>
-    import radioImg from '../../assets/radio.png'
-    import radioUnselectImg from '../../assets/radio-unselect.png'
-    import dragImg from '../../assets/drop.png'
+    import radioImg from '../images/radio.png'
+    import radioUnselectImg from '../images/radio-unselect.png'
+    import dragImg from '../images/drop.png'
 
     export default {
         name: "component-radio",

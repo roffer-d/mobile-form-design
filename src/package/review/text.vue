@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import textImg from '../../assets/text.png'
+  import textImg from '../images/text.png'
 
 export default {
   name: "review-text",

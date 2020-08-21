@@ -27,9 +27,9 @@
 </template>
 
 <script>
-    import radioImg from '../../assets/radio.png'
-    import uncheckedImg from '../../assets/unchecked.png'
-    import checkedImg from '../../assets/radio-checked.png'
+    import radioImg from '../images/radio.png'
+    import uncheckedImg from '../images/unchecked.png'
+    import checkedImg from '../images/radio-checked.png'
 
     export default {
         name: "review-radio",

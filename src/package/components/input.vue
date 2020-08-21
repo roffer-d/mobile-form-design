@@ -14,8 +14,8 @@
 </template>
 
 <script>
-    import inputImg from '../../assets/input.png'
-    import dragImg from '../../assets/drop.png'
+    import inputImg from '../images/input.png'
+    import dragImg from '../images/drop.png'
 
     export default {
         name: "component-input",

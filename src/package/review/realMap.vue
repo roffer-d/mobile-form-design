@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import locationImg from '../../assets/location.png'
+    import locationImg from '../images/location.png'
     import mobileRealMap from "./mobileRealMap"
     import Const from '../utils/const'
 

@@ -17,9 +17,9 @@
 </template>
 
 <script>
-    import checkboxImg from '../../assets/checkbox.png'
-    import radioUnselectImg from '../../assets/radio-unselect.png'
-    import dragImg from '../../assets/drop.png'
+    import checkboxImg from '../images/checkbox.png'
+    import radioUnselectImg from '../images/radio-unselect.png'
+    import dragImg from '../images/drop.png'
 
     export default {
         name: "component-checkbox",

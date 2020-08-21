@@ -23,9 +23,9 @@
 </template>
 
 <script>
-    import delImg from '../../assets/delete.png'
-    import addImg from '../../assets/add.png'
-    import dragImg from '../../assets/drop.png'
+    import delImg from '../images/delete.png'
+    import addImg from '../images/add.png'
+    import dragImg from '../images/drop.png'
     import draggable from 'vuedraggable'
 
     export default {
