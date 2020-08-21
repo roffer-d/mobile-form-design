@@ -95,6 +95,8 @@
 </style>
 <style scoped lang="less">
     .form-review {
+        font-size: .24rem;
+
         .bar {
             height: .94rem;
             display: flex;
@@ -145,6 +147,46 @@
             margin-top: .94rem;
             height: calc(100vh - 0.94rem);
             overflow: auto;
+
+            .form-box {
+                background: #fff;
+                padding: .3rem;
+                font-size: .26rem;
+                margin: .1rem 0;
+
+                .title {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .require {
+                        color: #ff5855;
+                        margin-right: .1rem;
+                    }
+
+                    .icon {
+                        margin-right: .1rem;
+                    }
+
+                    .label {
+                        color: #434B65;
+                    }
+
+                    img {
+                        width: .3rem;
+                        height: .3rem;
+                        vertical-align: sub;
+                    }
+                }
+
+                .content {
+                    padding-left: .4rem;
+                    margin: .2rem 0;
+
+                    .placeholder {
+                        color: #A1A5B2;
+                    }
+                }
+            }
 
             .form-item {
                 background: #fff;

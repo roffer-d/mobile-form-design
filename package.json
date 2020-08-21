@@ -1,6 +1,6 @@
 {
   "name": "mobile-form-design",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "main": "src/package/index.js",
   "keywords": [
