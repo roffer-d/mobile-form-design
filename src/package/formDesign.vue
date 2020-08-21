@@ -92,11 +92,11 @@
         props: {
             componentList:{
                 type:Array,
-                default:()=>{}
+                default:()=>[]
             },
             fieldList:{
                 type:Array,
-                default:()=>{}
+                default:()=>[]
             },
             uploadOption:{
                 type:Object,
