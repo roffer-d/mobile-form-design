@@ -1,26 +1,26 @@
 <template>
-<!--    <form-design @save="save" @back="back"-->
-<!--                 :componentList="componentList"-->
-<!--                 :fieldList="fieldList"-->
-<!--                 :upload-option="uploadOption">-->
-<!--        &lt;!&ndash; 此处可以放置表单的其他自定义字段插槽，如表单名称、类型等自定义字段 &ndash;&gt;-->
-<!--        <div slot="other-fields">-->
-<!--            <div class="form-item">-->
-<!--                <div class="title">表单标题</div>-->
-<!--                <div class="content">-->
-<!--                    <input type="text" v-model="form.formName" placeholder="请输入标题"/>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-item">-->
-<!--                <div class="title">表单类型</div>-->
-<!--                <div class="content">-->
-<!--                    <span>请选择表单类型</span>-->
-<!--                    <img :src="right"/>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </form-design>-->
-    <form-review :fields="fieldList" />
+    <form-design @save="save" @back="back"
+                 :componentList="componentList"
+                 :fieldList="fieldList"
+                 :upload-option="uploadOption">
+        <!-- 此处可以放置表单的其他自定义字段插槽，如表单名称、类型等自定义字段 -->
+        <div slot="other-fields">
+            <div class="form-item">
+                <div class="title">表单标题</div>
+                <div class="content">
+                    <input type="text" v-model="form.formName" placeholder="请输入标题"/>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">表单类型</div>
+                <div class="content">
+                    <span>请选择表单类型</span>
+                    <img :src="right"/>
+                </div>
+            </div>
+        </div>
+    </form-design>
+<!--    <form-review :fields="fieldList" />-->
 </template>
 <script>
     import right from './package/images/right.png'
