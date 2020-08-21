@@ -89,7 +89,7 @@
 
     export default {
         name: "formDesign",
-        props: ['fieldList', 'uploadOption'],
+        props: ['componentList', 'uploadOption','fieldList'],
         components: {draggable, formItem, formConfig},
         data() {
             return {
@@ -108,6 +108,11 @@
                 selectedIndex: -1,
             }
         },
+        created() {
+            if(this.fieldList && this.fieldList.length){
+                this.targetFields = JSON.parse(JSON.stringify(this.fieldList))
+            }
+        },
         mounted() {
             this.getFilterFields()
         },
@@ -115,8 +120,8 @@
             getFilterFields() {
                 this.filterFields = this.fieldsConfig
 
-                if (this.fieldList.length) {
-                    this.filterFields = this.filterFields.filter(field => this.fieldList.includes(field.type))
+                if (this.componentList.length) {
+                    this.filterFields = this.filterFields.filter(field => this.componentList.includes(field.type))
                 }
             },
             handleMove(evt) {

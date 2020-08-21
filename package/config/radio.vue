@@ -42,7 +42,8 @@
                 this.field.dicData.splice(index, 1)
             },
             addItem() {
-                let label = `选项${this.field.dicData.length + 1}`
+                // let label = `选项${this.field.dicData.length + 1}`
+                let label = `选项_${Date.now()}`
                 this.field.dicData.push({
                     label: label,
                     value: label

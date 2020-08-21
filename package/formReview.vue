@@ -1,23 +1,10 @@
 <template>
     <div class="form-review">
-        <div class="bar">
+        <div class="bar" v-if="showBar">
             <div class="back" @click="back"><img :src="backImg"/></div>
             <div class="title">表单预览</div>
         </div>
         <div class="ctx">
-<!--            <div class="form-item">-->
-<!--                <div class="title">表单标题</div>-->
-<!--                <div class="content">-->
-<!--                    <input type="text" placeholder="请输入标题"/>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-item">-->
-<!--                <div class="title">表单类型</div>-->
-<!--                <div class="content">-->
-<!--                    <span>请选择表单类型</span>-->
-<!--                    <img :src="rightImg"/>-->
-<!--                </div>-->
-<!--            </div>-->
             <slot name="custom" />
             <div class="trip">
                 <span>表单内容</span>
@@ -34,7 +21,7 @@
 
     export default {
         name: "formReview",
-        props: ['fields','uploadOption'],
+        props: ['fields','uploadOption','showBar'],
         data() {
             return {
                 backImg, rightImg

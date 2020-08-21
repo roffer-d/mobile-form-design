@@ -1,5 +1,8 @@
 <template>
-    <form-design @save="save" @back="back" :fieldList="fieldList" :upload-option="uploadOption">
+    <form-design @save="save" @back="back"
+                 :componentList="componentList"
+                 :fieldList="fieldList"
+                 :upload-option="uploadOption">
         <!-- 此处可以放置表单的其他自定义字段插槽，如表单名称、类型等自定义字段 -->
         <div slot="other-fields">
             <div class="form-item">
@@ -30,7 +33,11 @@
                  * 需要的组件
                  * 全部组件：'input','password','textarea','text','radio','checkbox','select','upload','date','datetime','map','realMap'
                  **/
-                fieldList: ['input', 'password', 'textarea', 'text', 'radio', 'checkbox', 'select', 'upload', 'date', 'datetime', 'map', 'realMap'],
+                componentList: ['input', 'password', 'textarea', 'text', 'radio', 'checkbox', 'select', 'upload', 'date', 'datetime', 'map', 'realMap'],
+                /**
+                 * 可设置已有的组件
+                 **/
+                fieldList:[{"type":"radio","label":"单选框组","span":24,"display":true,"dicOption":"static","prop":"radio_1597888954331_36045","propSeq":"1597888954331_36045","id":"radio_1597888954331_36045","dicData":[{"label":"选项1","value":"选项1"},{"label":"选项2","value":"选项2"},{"label":"选项3","value":"选项3"}]},{"type":"checkbox","label":"多选框组","span":24,"display":true,"dicOption":"static","prop":"checkbox_1597888955240_40284","propSeq":"1597888955240_40284","id":"checkbox_1597888955240_40284","dicData":[{"label":"选项1","value":"选项1"},{"label":"选项2","value":"选项2"},{"label":"选项3","value":"选项3"}]},{"type":"textarea","label":"多行文本","span":24,"display":true,"prop":"textarea_1597889180918_18675","propSeq":"1597889180918_18675","id":"textarea_1597889180918_18675","dicOption":"data"},{"type":"input","label":"单行文本","span":24,"display":true,"prop":"input_1597889180098_6399","propSeq":"1597889180098_6399","id":"input_1597889180098_6399","dicOption":"data","sourceFormId":"308687669410402304","sourceFieldId":"radio_1597888705605_68342","targetFieldId":"radio_1597888705605_68342","targetFormId":"308687669410402304","sourceProp":"textarea_1597889180918_18675"},{"type":"select","label":"下拉选择器","dicData":[{"label":"选项3","value":"选项3"},{"label":"选项2","value":"选项2"},{"label":"选项3","value":"选项3"}],"span":24,"display":true,"dicOption":"static","prop":"select_1597909767546_23384","propSeq":"1597909767546_23384","id":"select_1597909767546_23384"}],
                 /**
                  * 如需用到上传，可配置上传项
                  * 目前上传固定返回数组对象,此处后期会改成可制定内容，敬请期待...
