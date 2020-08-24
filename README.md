@@ -1,5 +1,13 @@
 # mobile-form-design
 
+## Version update
+```
+version 0.0.8
+
+1、优化拖拽表单组件效果
+2、固定配置界面的标题不跟随输入而变化
+```
+
 ## Resource
 ```
 https://github.com/roffer-d/mobile-form-design
