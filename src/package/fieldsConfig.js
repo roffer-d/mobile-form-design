@@ -2,24 +2,28 @@ export default [
     {
         type: 'input',
         label: '单行文本',
+        title: '单行文本',
         icon: 'input',
         disabled: false
     },
     {
         type: 'password',
         label: '密码',
+        title: '密码',
         icon: 'password',
         disabled: false
     },
     {
         type: 'textarea',
         label: '多行文本',
+        title: '多行文本',
         icon: 'textarea',
         disabled: false
     },
     {
         type: 'text',
         label: '文字说明',
+        title: '文字说明',
         icon: 'text',
         displayText: '这是一段文字内容',
         disabled: false
@@ -27,6 +31,7 @@ export default [
     {
         type: 'radio',
         label: '单选',
+        title: '单选',
         icon: 'radio',
         dicData: [
             {label: '选项1', value: '选项1'},
@@ -38,6 +43,7 @@ export default [
     {
         type: 'checkbox',
         label: '多选',
+        title: '多选',
         icon: 'checkbox',
         dicData: [
             {label: '选项1', value: '选项1'},
@@ -49,6 +55,7 @@ export default [
     {
         type: 'select',
         label: '下拉选择器',
+        title: '下拉选择器',
         icon: 'select',
         dicData: [
             {label: '选项1', value: '选项1'},
@@ -60,6 +67,7 @@ export default [
     {
         type: 'upload',
         label: '上传',
+        title: '上传',
         icon: 'upload',
         action:'',
         showFileList: true,
@@ -82,6 +90,7 @@ export default [
     {
         type: 'date',
         label: '日期',
+        title: '日期',
         icon: 'date',
         format: 'yyyy-MM-dd',
         valueFormat: 'yyyy-MM-dd',
@@ -90,6 +99,7 @@ export default [
     {
         type: 'datetime',
         label: '日期时间',
+        title: '日期时间',
         icon: 'date',
         format: 'yyyy-MM-dd hh:mm:ss',
         valueFormat: 'yyyy-MM-dd hh:mm:ss',
@@ -98,12 +108,14 @@ export default [
     {
         type: 'map',
         label: '地址选择',
+        title: '地址选择',
         icon: 'location',
         disabled: false
     },
     {
         type: 'realMap',
         label: '实时位置',
+        title: '实时位置',
         icon: 'location',
         disabled: false
     }

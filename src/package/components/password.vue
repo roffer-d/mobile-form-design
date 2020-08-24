@@ -5,7 +5,7 @@
                 <img :src="passwordImg" class="icon"/>
                 <span class="label">{{field.label}}</span>
             </div>
-            <img :src="dragImg"/>
+            <img :src="dragImg" class="dragBtn" />
         </div>
         <div class="content">
             <span class="placeholder">请输入{{field.label}}</span>

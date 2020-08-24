@@ -5,7 +5,7 @@
                 <img :src="uploadImg" class="icon"/>
                 <span class="label">{{field.label}}</span>
             </div>
-            <img :src="dragImg"/>
+            <img :src="dragImg" class="dragBtn" />
         </div>
         <div class="content">
             <span class="placeholder">请选择文件</span>

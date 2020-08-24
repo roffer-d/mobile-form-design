@@ -22,6 +22,7 @@
                        :group="{ name: 'form', put: true}"
                        ghost-class="ghost"
                        :sort="true"
+                       handle=".dragBtn"
                        @update="handleUpdate"
                        @add="handleAdd">
 

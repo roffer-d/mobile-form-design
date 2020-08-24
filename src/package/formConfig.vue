@@ -2,7 +2,7 @@
     <div class="form-config">
         <div class="bar">
             <div class="back" @click="back"><img :src="backImg"/></div>
-            <div class="title">{{field.label}}配置</div>
+            <div class="title">{{field.title}}配置</div>
         </div>
 
         <div class="form-item">
