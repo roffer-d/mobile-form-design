@@ -8,14 +8,15 @@
         <div class="form-item">
             <div class="title">标题</div>
             <div class="content">
-                <input type="text" maxlength="20" placeholder="请输入标题" v-model="field.label"/>
+                <input v-if="field.type=='text'" type="text" maxlength="20" placeholder="请输入标题" v-model="field.displayText"/>
+                <input v-else type="text" maxlength="20" placeholder="请输入标题" v-model="field.label"/>
             </div>
         </div>
         <div class="trip">
             <span>组件内容</span>
         </div>
 
-        <component :is="who" :field="field" />
+        <component :is="who" :field="field"/>
 
         <div class="is-required">
             <span>是否必填</span>
@@ -54,11 +55,11 @@
             back() {
                 this.$emit('update:visible', false)
             },
-            delField(){
+            delField() {
                 this.$emit('delete')
             },
-            save(){
-                if(!this.field.label){
+            save() {
+                if (!this.field.label) {
                     Toast('标题不能为空！')
                     return
                 }
@@ -78,6 +79,11 @@
 </style>
 <style scoped lang="less">
     .form-config {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow-y: auto;
+
         .bar {
             height: .94rem;
             display: flex;
@@ -171,7 +177,7 @@
             justify-content: space-between;
             align-items: center;
             margin: .3rem 0;
-            padding: 0 .3rem;
+            padding: .3rem;
             height: 1.04rem;
             font-size: .3rem;
             color: #434B65;
@@ -188,13 +194,16 @@
             margin-top: 1rem;
         }
 
-        .save{
+        .save {
             width: 100%;
             background: #fff;
             position: fixed;
             bottom: 0;
             padding: .3rem 0;
             z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-flow: column;
 
             .save-btn {
                 height: .88rem;

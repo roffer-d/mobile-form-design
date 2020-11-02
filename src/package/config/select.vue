@@ -4,13 +4,14 @@
                    :list="field.dicData"
                    :group="{ name: 'dicData', pull: 'clone', put: false }"
                    ghost-class="ghost"
+                   handle=".dragBtn"
                    :sort="true">
 
             <div class="item" v-for="(item,index) in field.dicData" :key="index">
                 <img :src="delImg" @click="delItem(index)"/>
                 <div class="right">
                     <input type="text" v-model="item.label" placeholder="请输入"/>
-                    <img :src="dragImg"/>
+                    <div class="dragBtn"><img :src="dragImg" /></div>
                 </div>
             </div>
 
@@ -78,6 +79,7 @@
                 justify-content: space-between;
                 border-bottom: .01rem solid #EFF1F4;
                 padding: .3rem 0;
+                align-items: center;
 
                 input {
                     width: 100%;
@@ -85,6 +87,10 @@
                     color: #555;
                     border: none;
                     outline: none;
+                }
+
+                .dragBtn{
+                    padding: .1rem;
                 }
             }
         }

@@ -13,8 +13,16 @@
             <slot name="other-fields"/>
             <div class="trip">
                 <span>表单内容</span>
-                <img :src="tripImg"/>
-                <span>拖拽底部控件到此处, 可左滑删除</span>
+                <div>
+                    <div>
+                        <img :src="tripImg" />
+                        <span>拖拽底部控件到此处, 可左滑删除</span>
+                    </div>
+                    <div>
+                        <img :src="tripImg" />
+                        <span>可长按组件右侧拖拽按钮调整组件上下位置</span>
+                    </div>
+                </div>
             </div>
 
             <draggable tag="div" class="target-form"
@@ -52,6 +60,7 @@
 
         <van-popup v-model="reviewVisible" position="right" :style="{ height: '100%',width:'100%' }">
             <form-review :visible.sync="reviewVisible" :fields="reviewFields" :validate.sync="validate"
+                         :show-bar="true"
                          :upload-option="uploadOption">
                 <other-fields slot="custom"/>
             </form-review>
@@ -332,6 +341,8 @@
 
             .trip {
                 margin: .3rem;
+                display: flex;
+                align-items: center;
 
                 span:first-child {
                     color: #434B65;

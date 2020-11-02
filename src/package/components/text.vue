@@ -3,7 +3,7 @@
     <div class="title">
       <div>
         <img :src="textImg" class="icon" />
-        <span class="label">{{field.label}}</span>
+        <span class="label">{{field.displayText}}</span>
       </div>
       <img :src="dragImg" class="dragBtn" />
     </div>

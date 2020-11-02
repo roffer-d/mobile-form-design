@@ -4,13 +4,14 @@
             <div class="back" @click="back"><img :src="backImg"/></div>
             <div class="title">表单预览</div>
         </div>
-        <div class="ctx">
-            <slot name="custom" />
-            <div class="trip">
+        <div class="ctx" :class="{mgTop:showBar}">
+            <slot name="custom"/>
+            <div class="trip" v-if="showBar">
                 <span>表单内容</span>
             </div>
 
-            <component :is="`review-${item.type}`" :field="item" v-for="(item,index) in fields" :key="index" :upload-option="uploadOption" />
+            <component :is="`review-${item.type}`" :field="item" v-for="(item,index) in fields" :key="index"
+                       :upload-option="uploadOption"/>
         </div>
     </div>
 </template>
@@ -21,18 +22,19 @@
 
     export default {
         name: "formReview",
-        props:{
-            fields:{
-                type:Array,
-                default:()=>[]
+        props: {
+            fields: {
+                type: Array,
+                default: () => []
             },
-            uploadOption:{
-                type:Object,
-                default:()=>{}
+            uploadOption: {
+                type: Object,
+                default: () => {
+                }
             },
-            showBar:{
-                type:Boolean,
-                default:true
+            showBar: {
+                type: Boolean,
+                default: true
             }
         },
         data() {
@@ -45,8 +47,8 @@
                 return `config-${this.field.type}`
             }
         },
-        watch:{
-            fields(){
+        watch: {
+            fields() {
                 this.isValidForm()
             }
         },
@@ -70,7 +72,7 @@
                     }
                 })
 
-                this.$emit('update:validate',ret)
+                this.$emit('update:validate', ret)
 
                 return ret
             }
@@ -144,7 +146,10 @@
         }
 
         .ctx {
-            margin-top: .94rem;
+            &.mgTop {
+                margin-top: 0.94rem;
+            }
+
             height: calc(100vh - 0.94rem);
             overflow: auto;
 
